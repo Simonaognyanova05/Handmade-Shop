@@ -1,13 +1,37 @@
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
+    const unlogged = (
+        <>
+            <li className="nav-item">
+                <NavLink to="/login" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                    Вход
+                </NavLink>
+            </li>
+        </>
+    );
+
+    const logged = (
+        <>
+            <li className="nav-item">
+                <NavLink to="/cart" className={({ isActive }) => "nav-link cart-link" + (isActive ? " active" : "")}>
+                    <i className="fa fa-shopping-cart"></i> <span className="cart-count">2</span>
+                </NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink to="/about" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                    Вход
+                </NavLink>
+            </li>
+        </>
+    );
     return (
         <header>
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
-                    <NavLink className="navbar-brand" to="/">
+                    <a className="navbar-brand" href="/">
                         <h2>Sixteen <em>Clothing</em></h2>
-                    </NavLink>
+                    </a>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -41,12 +65,8 @@ export default function Navbar() {
                                     Контакти
                                 </NavLink>
                             </li>
-                            {/* 🛒 Количка */}
-                            <li className="nav-item">
-                                <NavLink to="/cart" className={({ isActive }) => "nav-link cart-link" + (isActive ? " active" : "")}>
-                                    <i className="fa fa-shopping-cart"></i> <span className="cart-count">2</span>
-                                </NavLink>
-                            </li>
+                            {unlogged}
+
                         </ul>
                     </div>
                 </div>

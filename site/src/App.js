@@ -7,6 +7,7 @@ import Contacts from "./components/Contacts";
 import Products from "./components/Products";
 import Details from "./components/Details/Details";
 import CartPage from "./components/CartPage/CartPage";
+import Login from "./components/Login/Login";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/details" element={<Details />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/login" element={<Login />} />
 
       </Routes>
 
