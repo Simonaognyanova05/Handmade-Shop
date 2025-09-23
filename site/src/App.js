@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contacts from "./components/Contacts";
-import PhotoDetails from "./components/PhotoDetails";
+import Products from "./components/Products";
 
 
 function App() {
@@ -12,13 +12,10 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/contacts" element={<Contacts/>} />
-        <Route path="/photoDetails" element={<PhotoDetails/>} />
-
-
-
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
 
       <Footer />

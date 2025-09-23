@@ -2,248 +2,214 @@
 export default function Home() {
     return (
         <>
-            <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll"
-                data-image-src="img/hero.jpg">
-                <form class="d-flex tm-search-form">
-                    <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success tm-search-btn" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                </form>
-            </div>
-
-            <div class="container-fluid tm-container-content tm-mt-60">
-                <div class="row mb-4">
-                    <h2 class="col-6 tm-text-primary">
-                        Latest Photos
-                    </h2>
-                    <div class="col-6 d-flex justify-content-end align-items-center">
-                        <form action="" class="tm-text-primary">
-                            Page <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary" /> of 200
-                        </form>
+            <div className="banner header-text">
+                <div className="owl-banner owl-carousel">
+                    <div className="banner-item-01">
+                        <div className="text-content">
+                            <h4>Best Offer</h4>
+                            <h2>New Arrivals On Sale</h2>
+                        </div>
+                    </div>
+                    <div className="banner-item-02">
+                        <div className="text-content">
+                            <h4>Flash Deals</h4>
+                            <h2>Get your best products</h2>
+                        </div>
+                    </div>
+                    <div className="banner-item-03">
+                        <div className="text-content">
+                            <h4>Last Minute</h4>
+                            <h2>Grab last minute deals</h2>
+                        </div>
                     </div>
                 </div>
-                <div class="row tm-mb-90 tm-gallery">
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-03.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Clocks</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">18 Oct 2020</span>
-                            <span>9,906 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-04.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Plants</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">14 Oct 2020</span>
-                            <span>16,100 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-05.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Morning</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">12 Oct 2020</span>
-                            <span>12,460 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-06.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Pinky</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">10 Oct 2020</span>
-                            <span>11,402 views</span>
-                        </div>
-                    </div>
+            </div>
 
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-01.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Hangers</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">24 Sep 2020</span>
-                            <span>16,008 views</span>
+            <div className="latest-products">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="section-heading">
+                                <h2>Latest Products</h2>
+                                <a href="products.html">view all products <i className="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="product-item">
+                                <a href="#"><img src="assets/images/product_01.jpg" alt="" /></a>
+                                <div className="down-content">
+                                    <a href="#">
+                                        <h4>Tittle goes here</h4>
+                                    </a>
+                                    <h6>$25.75</h6>
+                                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                    <ul className="stars">
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                    </ul>
+                                    <span>Reviews (24)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="product-item">
+                                <a href="#"><img src="assets/images/product_02.jpg" alt="" /></a>
+                                <div className="down-content">
+                                    <a href="#">
+                                        <h4>Tittle goes here</h4>
+                                    </a>
+                                    <h6>$30.25</h6>
+                                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                    <ul className="stars">
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                    </ul>
+                                    <span>Reviews (21)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="product-item">
+                                <a href="#"><img src="assets/images/product_03.jpg" alt="" /></a>
+                                <div className="down-content">
+                                    <a href="#">
+                                        <h4>Tittle goes here</h4>
+                                    </a>
+                                    <h6>$20.45</h6>
+                                    <p>Sixteen Clothing is free CSS template provided by TemplateMo.</p>
+                                    <ul className="stars">
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                    </ul>
+                                    <span>Reviews (36)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="product-item">
+                                <a href="#"><img src="assets/images/product_04.jpg" alt="" /></a>
+                                <div className="down-content">
+                                    <a href="#">
+                                        <h4>Tittle goes here</h4>
+                                    </a>
+                                    <h6>$15.25</h6>
+                                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                    <ul className="stars">
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                    </ul>
+                                    <span>Reviews (48)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="product-item">
+                                <a href="#"><img src="assets/images/product_05.jpg" alt="" /></a>
+                                <div className="down-content">
+                                    <a href="#">
+                                        <h4>Tittle goes here</h4>
+                                    </a>
+                                    <h6>$12.50</h6>
+                                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                    <ul className="stars">
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                    </ul>
+                                    <span>Reviews (16)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="product-item">
+                                <a href="#"><img src="assets/images/product_06.jpg" alt="" /></a>
+                                <div className="down-content">
+                                    <a href="#">
+                                        <h4>Tittle goes here</h4>
+                                    </a>
+                                    <h6>$22.50</h6>
+                                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                                    <ul className="stars">
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                        <li><i className="fa fa-star"></i></li>
+                                    </ul>
+                                    <span>Reviews (32)</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-02.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Perfumes</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">20 Sep 2020</span>
-                            <span>12,860 views</span>
+                </div>
+            </div>
+
+            <div className="best-features">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="section-heading">
+                                <h2>About Sixteen Clothing</h2>
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="left-content">
+                                <h4>Looking for the best products?</h4>
+                                <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This
+                                    template</a> is free to use for your business websites. However, you have no permission to redistribute
+                                    the downloadable ZIP file on any template collection website. <a rel="nofollow"
+                                        href="https://templatemo.com/contact">Contact us</a> for more info.</p>
+                                <ul className="featured-list">
+                                    <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                                    <li><a href="#">Consectetur an adipisicing elit</a></li>
+                                    <li><a href="#">It aquecorporis nulla aspernatur</a></li>
+                                    <li><a href="#">Corporis, omnis doloremque</a></li>
+                                    <li><a href="#">Non cum id reprehenderit</a></li>
+                                </ul>
+                                <a href="about.html" className="filled-button">Read More</a>
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="right-image">
+                                <img src="assets/images/feature-image.jpg" alt="" />
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-07.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Bus</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">16 Sep 2020</span>
-                            <span>10,900 views</span>
+                </div>
+            </div>
+
+
+            <div className="call-to-action">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="inner-content">
+                                <div className="row">
+                                    <div className="col-md-8">
+                                        <h4>Creative &amp; Unique <em>Sixteen</em> Products</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.
+                                        </p>
+                                    </div>
+                                    <div className="col-md-4">
+                                        <a href="#" className="filled-button">Purchase Now</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-08.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>New York</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">12 Sep 2020</span>
-                            <span>11,300 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-09.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Abstract</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">10 Sep 2020</span>
-                            <span>42,700 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-10.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Flowers</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">8 Sep 2020</span>
-                            <span>11,402 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-11.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Rosy</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">4 Sep 2020</span>
-                            <span>32,906 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-12.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Rocki</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">28 Aug 2020</span>
-                            <span>50,700 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-13.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Purple</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">22 Aug 2020</span>
-                            <span>107,510 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-14.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Sea</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">14 Aug 2020</span>
-                            <span>118,006 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-15.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Turtle</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">9 Aug 2020</span>
-                            <span>121,300 views</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-                        <figure class="effect-ming tm-video-item">
-                            <img src="img/img-16.jpg" alt="Image" class="img-fluid" />
-                                <figcaption class="d-flex align-items-center justify-content-center">
-                                    <h2>Peace</h2>
-                                    <a href="photo-detail.html">View more</a>
-                                </figcaption>
-                        </figure>
-                        <div class="d-flex justify-content-between tm-text-gray">
-                            <span class="tm-text-gray-light">3 Aug 2020</span>
-                            <span>21,204 views</span>
-                        </div>
-                    </div>
-                </div> 
-                <div class="row tm-mb-90">
-                    <div class="col-12 d-flex justify-content-between align-items-center tm-paging-col">
-                        <a href="javascript:void(0);" class="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>
-                        <div class="tm-paging d-flex">
-                            <a href="javascript:void(0);" class="active tm-paging-link">1</a>
-                            <a href="javascript:void(0);" class="tm-paging-link">2</a>
-                            <a href="javascript:void(0);" class="tm-paging-link">3</a>
-                            <a href="javascript:void(0);" class="tm-paging-link">4</a>
-                        </div>
-                        <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
                     </div>
                 </div>
             </div>
