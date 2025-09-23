@@ -186,7 +186,7 @@ textarea {
 @media (max-width: 768px) {
     .details-page {
         flex-direction: column;
-        padding: 80px 15px 40px;
+        padding: 90px 15px 40px;
     }
 
     .product-info h1 {

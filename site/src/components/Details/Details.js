@@ -14,7 +14,7 @@ export default function Details() {
                 <div className="thumbnails">
                     <img src="https://i.imgur.com/6c2xsF8.png" alt="thumb 1" />
                     <img src="https://i.imgur.com/6c2xsF8.png" alt="thumb 2" />
-                    <img src="https://i.imgur.com/6c2xsF8.png" alt="thumb 3" />
+                    <img src="https://i.imgur.com/KNoMG79.png" alt="thumb 3" />
                     <img src="https://i.imgur.com/6c2xsF8.png" alt="thumb 4" />
                 </div>
             </div>
