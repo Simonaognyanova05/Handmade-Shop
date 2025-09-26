@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Navbar() {
+    const { user } = useAuth();
+
     const unlogged = (
         <>
             <li className="nav-item">
@@ -14,13 +17,13 @@ export default function Navbar() {
     const logged = (
         <>
             <li className="nav-item">
-                <NavLink to="/cart" className={({ isActive }) => "nav-link cart-link" + (isActive ? " active" : "")}>
-                    <i className="fa fa-shopping-cart"></i> <span className="cart-count">2</span>
+                <NavLink to="/about" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                    Изход
                 </NavLink>
             </li>
             <li className="nav-item">
-                <NavLink to="/about" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                    Вход
+                <NavLink to="/cart" className={({ isActive }) => "nav-link cart-link" + (isActive ? " active" : "")}>
+                    <i className="fa fa-shopping-cart"></i> <span className="cart-count">2</span>
                 </NavLink>
             </li>
         </>
@@ -65,7 +68,7 @@ export default function Navbar() {
                                     Контакти
                                 </NavLink>
                             </li>
-                            {unlogged}
+                            {Boolean(user.email) ? logged : unlogged}
 
                         </ul>
                     </div>
