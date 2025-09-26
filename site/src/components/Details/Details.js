@@ -23,11 +23,6 @@ export default function Details() {
             <div className="product-info">
                 <h1>Колаж "За Мама"</h1>
 
-                <div className="rating">
-                    <span className="stars">★★★★☆</span>
-                    <span className="reviews">4.7 | 248 ревюта</span>
-                </div>
-
                 <div className="price">
                     29.99 лв <span>(€15.33)</span>
                 </div>
@@ -37,14 +32,6 @@ export default function Details() {
                     незабравим спомен, който ще донесе уют във вашия дом, за да пазите най-значимите моменти.
                 </p>
 
-                <div className="option">
-                    <h3>Цвят на рамката</h3>
-                    <div className="colors">
-                        <span className="color black"></span>
-                        <span className="color white"></span>
-                        <span className="color beige"></span>
-                    </div>
-                </div>
 
                 <div className="option">
                     <h3>Размер</h3>
@@ -54,17 +41,9 @@ export default function Details() {
                     </div>
                 </div>
 
-                <div className="option">
-                    <h3>Добавки</h3>
-                    <ul className="addons">
-                        <li><span>Добави картичка</span><span>5.49 лв (€2.81)</span></li>
-                        <li><span>Подаръчна кутия</span><span>5.99 лв (€3.06)</span></li>
-                        <li><span>Сребърно колие „Обичам те“</span><span>44.99 лв (€23.00)</span></li>
-                    </ul>
-                </div>
 
                 <div className="option">
-                    <label>Добавете информация за вашия колаж:</label>
+                    <label>Добавете информация за вашия колаж (ако е необходимо):</label>
                     <textarea placeholder="Дата, текст, номера, имена..."></textarea>
                 </div>
 

@@ -17,8 +17,13 @@ export default function Navbar() {
     const logged = (
         <>
             <li className="nav-item">
-                <NavLink to="/about" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                <NavLink to="/logout" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
                     Изход
+                </NavLink>
+            </li>
+             <li className="nav-item">
+                <NavLink to="/create" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                    Добави продукт
                 </NavLink>
             </li>
             <li className="nav-item">
@@ -33,7 +38,7 @@ export default function Navbar() {
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
                     <a className="navbar-brand" href="/">
-                        <h2>Sixteen <em>Clothing</em></h2>
+                        <h2>Handmade <em>Gifts</em></h2>
                     </a>
                     <button
                         className="navbar-toggler"
