@@ -9,6 +9,7 @@ import Details from "./components/Details/Details";
 import CartPage from "./components/CartPage/CartPage";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import CreateProduct from "./components/Create/Create";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/details" element={<Details />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/create" element={<CreateProduct />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 

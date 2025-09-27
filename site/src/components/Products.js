@@ -78,7 +78,7 @@ export default function Products() {
                                                 <a href="#">
                                                     <h4>Tittle goes here</h4>
                                                 </a>
-                                                <h6>$32.50</h6>
+                                                <h6>$32.50/32.50E</h6>
                                                 <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
                                                 <ul className="stars">
                                                     <li><i className="fa fa-star"></i></li>

@@ -1,33 +1,49 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import "./Login.css";
-import { useAuth } from "../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
-import { login } from "../../services/login";
+import "./Create.css";
+import { createProduct } from "../../services/createProduct";
 
-export default function Login() {
-    const navigate = useNavigate();
-    const { onLogin } = useAuth();
+export default function CreateProduct() {
+    const [title, setTitle] = useState("");
+    const [price, setPrice] = useState("");
+    const [sizes, setSizes] = useState([""]); // започваме с едно поле за размер
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
 
+    const addSizeField = () => {
+        setSizes([...sizes, ""]);
+    };
 
-    const loginHandler = async (e) => {
+    const handleSizeChange = (index, value) => {
+        const newSizes = [...sizes];
+        newSizes[index] = value;
+        setSizes(newSizes);
+    };
+
+    const submitHandler = async (e) => {
         e.preventDefault();
         setError("");
         setSuccess("");
 
-        const formData = new FormData(e.currentTarget);
-        const { email, password } = Object.fromEntries(formData);
+        if (!title || !price) {
+            setError("Моля, попълнете всички задължителни полета!");
+            return;
+        }
+
+        const product = {
+            title,
+            price,
+            sizes: sizes.filter(s => s.trim() !== "")
+        };
 
         try {
-            const user = await login(email, password);
-            onLogin(user);
-            setSuccess("Успешно влизане!");
-            navigate('/');
+            const created = await createProduct(product);
+            console.log("Създаден продукт:", created);
+            setSuccess("Продуктът е създаден успешно!");
+            setTitle("");
+            setPrice("");
+            setSizes([""]);
         } catch (err) {
-            console.error("LoginHandler error:", err.message);
-            setError(err.message); // Показваме реалната грешка
+            setError(err.message);
         }
     };
 
@@ -37,24 +53,47 @@ export default function Login() {
                 <h2>Създаване на продукт</h2>
                 {error && <div className="error-message">{error}</div>}
                 {success && <div className="success-message">{success}</div>}
-                <form onSubmit={loginHandler}>
+
+                <form onSubmit={submitHandler}>
                     <div className="form-group">
-                        <label>Имейл</label>
-                        <input type="email" placeholder="Въведете имейл" name="email" required />
+                        <label>Заглавие</label>
+                        <input
+                            type="text"
+                            placeholder="Въведете име на продукта"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            required
+                        />
                     </div>
 
                     <div className="form-group">
-                        <label>Парола</label>
-                        <input type="password" placeholder="Въведете парола" name="password" required />
+                        <label>Цена в лв.</label>
+                        <input
+                            type="number"
+                            placeholder="Въведете цена"
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                            required
+                        />
                     </div>
 
-                    <button type="submit" className="login-btn">Влез</button>
-
-                    <div className="extra-links">
-                        <Link to="/forgot-password">Забравена парола?</Link>
-                        <span> | </span>
-                        <Link to="/register">Регистрация</Link>
+                    <div className="form-group">
+                        <label>Размери</label>
+                        {sizes.map((size, index) => (
+                            <input
+                                key={index}
+                                type="text"
+                                placeholder="Пример: 21x30 см"
+                                value={size}
+                                onChange={(e) => handleSizeChange(index, e.target.value)}
+                            />
+                        ))}
+                        <button type="button" onClick={addSizeField} className="login-btn">
+                            Добави размер
+                        </button>
                     </div>
+
+                    <button type="submit" className="login-btn">Създай продукт</button>
                 </form>
             </div>
         </div>
