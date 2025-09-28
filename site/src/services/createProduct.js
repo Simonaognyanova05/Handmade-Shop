@@ -5,8 +5,15 @@ export async function createProduct(productData) {
     try {
         const docRef = await addDoc(collection(db, "products"), {
             title: productData.title,
-            price: Number(productData.price), // за всеки случай -> число
+            priceLv: Number(productData.priceLv), // за всеки случай -> число
+            priceEuro: Number(productData.priceEuro), // за всеки случай -> число
             sizes: productData.sizes,
+            img1: productData.img1,
+            img2: productData.img2,
+            img3: productData.img3,
+            img4: productData.img4,
+            img5: productData.img5,
+
             createdAt: new Date()
         });
 
