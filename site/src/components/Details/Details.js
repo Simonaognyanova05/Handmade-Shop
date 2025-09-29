@@ -1,46 +1,72 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getProductById } from "../../services/getProductById"; // 👈 новия service
 import "./Details.css";
 
 export default function Details() {
-    return (
+    const { id } = useParams();
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
 
+    useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+                const result = await getProductById(id);
+                if (result) {
+                    setProduct(result);
+                } else {
+                    setError("Продуктът не е намерен!");
+                }
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProduct();
+    }, [id]);
+
+    if (loading) return <p>Зареждане...</p>;
+    if (error) return <p className="error">{error}</p>;
+    if (!product) return null;
+
+    return (
         <main className="details-page">
             {/* Галерия */}
             <div className="product-gallery">
                 <img
-                    src="https://i.imgur.com/6c2xsF8.png"
-                    alt="Колаж За Мама"
+                    src={product.img1}
+                    alt={product.title}
                     className="main-image"
                 />
                 <div className="thumbnails">
-                    <img src="https://i.imgur.com/6c2xsF8.png" alt="thumb 1" />
-                    <img src="https://i.imgur.com/6c2xsF8.png" alt="thumb 2" />
-                    <img src="https://i.imgur.com/KNoMG79.png" alt="thumb 3" />
-                    <img src="https://i.imgur.com/6c2xsF8.png" alt="thumb 4" />
+                    <img src={product.img2} alt="test" />
+                    <img src={product.img3} alt="test" />
+                    <img src={product.img4} alt="test" />
+                    <img src={product.img5} alt="test" />
                 </div>
             </div>
 
             {/* Инфо */}
             <div className="product-info">
-                <h1>Колаж "За Мама"</h1>
+                <h1>{product.title}</h1>
 
-                <div className="price">
-                    29.99 лв <span>(€15.33)</span>
-                </div>
+                <div className="price">{product.priceLv} лв</div>
 
                 <p className="description">
-                    Първокласен, персонализиран колаж, който разказва вашата уникална история –
-                    незабравим спомен, който ще донесе уют във вашия дом, за да пазите най-значимите моменти.
+                    {product.description || "Няма описание за този продукт."}
                 </p>
-
 
                 <div className="option">
                     <h3>Размер</h3>
                     <div className="sizes">
-                        <button>21x30 см</button>
-                        <button>31x40 см</button>
+                        {product.sizes?.map((size, i) => (
+                            <button key={i}>{size}</button>
+                        ))}
                     </div>
                 </div>
-
 
                 <div className="option">
                     <label>Добавете информация за вашия колаж (ако е необходимо):</label>
@@ -51,6 +77,5 @@ export default function Details() {
                 <button className="cart-btn">🛒 ДОБАВИ В КОЛИЧКАТА</button>
             </div>
         </main>
-
     );
 }

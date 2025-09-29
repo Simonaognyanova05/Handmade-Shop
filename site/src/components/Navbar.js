@@ -38,7 +38,7 @@ export default function Navbar() {
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
                     <a className="navbar-brand" href="/">
-                        <h2>Handmade <em>Gifts</em></h2>
+                        <h2>Gift<em>Lab</em></h2>
                     </a>
                     <button
                         className="navbar-toggler"
