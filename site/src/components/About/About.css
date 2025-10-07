@@ -1,0 +1,43 @@
+.happy-clients {
+    background-color: #fffbea;
+    /* лек жълт фон */
+    padding: 60px 0;
+}
+
+.section-heading h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #222;
+    font-size: 2rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    /* повече разстояние между коментарите */
+}
+
+.testimonial-item {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.testimonial-item p {
+    font-style: italic;
+    color: #444;
+    font-size: 1.1rem;
+    /* по-голям шрифт */
+    line-height: 1.6;
+    /* по-удобно за четене */
+    margin-bottom: 20px;
+}
+
+.testimonial-item h4 {
+    color: #222;
+    font-weight: 600;
+    font-size: 1rem;
+}

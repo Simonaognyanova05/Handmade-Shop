@@ -21,14 +21,9 @@ export default function Navbar() {
                     Изход
                 </NavLink>
             </li>
-             <li className="nav-item">
+            <li className="nav-item">
                 <NavLink to="/create" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
                     Добави продукт
-                </NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink to="/cart" className={({ isActive }) => "nav-link cart-link" + (isActive ? " active" : "")}>
-                    <i className="fa fa-shopping-cart"></i> <span className="cart-count">2</span>
                 </NavLink>
             </li>
         </>
@@ -38,7 +33,7 @@ export default function Navbar() {
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
                     <a className="navbar-brand" href="/">
-                        <h2>Gift<em>Lab</em></h2>
+                        <h2>Perfectly <em>Splendid</em></h2>
                     </a>
                     <button
                         className="navbar-toggler"
