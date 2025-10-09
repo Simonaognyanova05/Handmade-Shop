@@ -42,6 +42,25 @@
     /* разстояние между колоните */
 }
 
+.edit-btn {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #2563eb;
+}
+
+.delete-btn {
+    background-color: #ef4444;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+}
+
+
 .product-item {
     border: 1px solid #eee;
     border-radius: 10px;

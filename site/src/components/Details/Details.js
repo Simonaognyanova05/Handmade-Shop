@@ -68,9 +68,9 @@ export default function Details() {
 
             <div className="product-info">
                 <h1>{product.title}</h1>
-                <div className="price">{product.priceLv} лв</div>
+                <div className="price">{product.subtitle}</div>
                 <p className="description">
-                    {/* {product.description || "Няма описание за този продукт."} */}
+                    {product.description || "Няма описание за този продукт."}
                     
                 </p>
 

@@ -8,11 +8,29 @@ export default function ProductItem({ product }) {
                 <div className="product-img">
                     <img src={product.img1} alt={product.title} />
                 </div>
+
                 <div className="down-content">
-                    <Link to="#">
+                    <Link to={`/products/${product.id}`}>
                         <h4>{product.title}</h4>
                     </Link>
-                    <p>{product.description}</p>
+                    <p>{product.subtitle}</p>
+
+                    
+                        <div className="product-actions">
+                            <button
+                                className="btn edit-btn"
+                               
+                            >
+                                Редактиране
+                            </button>
+                            <button
+                                className="btn delete-btn"
+                                
+                            >
+                                Изтриване
+                            </button>
+                        </div>
+                    
                 </div>
             </div>
         </div>
