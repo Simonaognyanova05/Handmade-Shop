@@ -10,6 +10,7 @@ import CartPage from "./components/CartPage/CartPage";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import CreateProduct from "./components/Create/Create";
+import Logout from "./components/Logout";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/create" element={<CreateProduct />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/logout" element={<Logout />} />
 
 
       </Routes>
