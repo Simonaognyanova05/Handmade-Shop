@@ -90,15 +90,15 @@ a.filled-button:hover {
 }
 
 .products-heading {
-	background-image: url(../images/products-heading.jpg);
+	background-image: url(../images/img7.jpg);
 }
 
 .about-heading {
-	background-image: url(../images/about-heading.jpg);
+	background-image: url(../images/img5.jpg);
 }
 
 .contact-heading {
-	background-image: url(../images/contact-heading.jpg);
+	background-image: url(../images/img6.jpg);
 }
 
 .page-heading {
@@ -389,7 +389,7 @@ header .navbar {
     height: 10px;
     border-radius: 50%;
     margin: 0 10px;
-    background-color: #F4D634;
+    background-color: #E00000;
     opacity: 0.5;
 }
 .owl-banner .owl-dots .owl-dot:focus {

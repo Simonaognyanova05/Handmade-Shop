@@ -53,11 +53,7 @@ export default function Navbar() {
                                     Начало
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink to="/products" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                                    Нашите продукти
-                                </NavLink>
-                            </li>
+
                             <li className="nav-item">
                                 <NavLink to="/about" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
                                     За нас
@@ -66,6 +62,11 @@ export default function Navbar() {
                             <li className="nav-item">
                                 <NavLink to="/contacts" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
                                     Контакти
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/products" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                                    Нашите продукти
                                 </NavLink>
                             </li>
                             {Boolean(user.email) ? logged : unlogged}
