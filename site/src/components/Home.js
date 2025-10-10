@@ -1,13 +1,29 @@
+import { useEffect, useState } from "react";
+
+import { Link } from "react-router-dom";
+import { fetchLatestProducts } from "../services/fetchLatestProducts";
 
 export default function Home() {
+    const [latestProducts, setLatestProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetchLatestProducts()
+            .then(res => {
+                setLatestProducts(res);
+                setLoading(false);
+            })
+            .catch(e => {
+                console.log(e);
+            })
+    }, []);
+
     return (
         <>
             <div className="banner header-text">
                 <div className="owl-banner owl-carousel">
                     <div className="banner-item-01">
-                        <div className="text-content">
-                          
-                        </div>
+                        <div className="text-content"></div>
                     </div>
                     <div className="banner-item-02">
                         <div className="text-content">
@@ -30,45 +46,36 @@ export default function Home() {
                         <div className="col-md-12">
                             <div className="section-heading">
                                 <h2>Latest Products</h2>
-                                <a href="products.html">view all products <i className="fa fa-angle-right"></i></a>
+                                <Link to="/products">
+                                    view all products <i className="fa fa-angle-right"></i>
+                                </Link>
                             </div>
                         </div>
-                        <div className="col-md-4">
-                            <div className="product-item">
-                                <a href="#"><img src="assets/images/product_01.jpg" alt="" /></a>
-                                <div className="down-content">
-                                    <a href="#">
-                                        <h4>Tittle goes here</h4>
-                                    </a>
-                                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
 
+                        {loading ? (
+                            <p style={{ textAlign: "center" }}>Зареждане...</p>
+                        ) : latestProducts.length === 0 ? (
+                            <p style={{ textAlign: "center" }}>Няма добавени продукти.</p>
+                        ) : (
+                            latestProducts.map((product) => (
+                                <div className="col-md-4" key={product.id}>
+                                    <div className="product-item">
+                                        <Link to={`/products/${product.id}`}>
+                                            <img
+                                                src={product.img1 || "/assets/images/default.jpg"}
+                                                alt={product.title}
+                                            />
+                                        </Link>
+                                        <div className="down-content">
+                                            <Link to={`/products/${product.id}`}>
+                                                <h4>{product.title}</h4>
+                                            </Link>
+                                            <p>{product.subtitle || "Без описание"}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="product-item">
-                                <a href="#"><img src="assets/images/product_01.jpg" alt="" /></a>
-                                <div className="down-content">
-                                    <a href="#">
-                                        <h4>Tittle goes here</h4>
-                                    </a>
-                                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="product-item">
-                                <a href="#"><img src="assets/images/product_01.jpg" alt="" /></a>
-                                <div className="down-content">
-                                    <a href="#">
-                                        <h4>Tittle goes here</h4>
-                                    </a>
-                                    <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-
-                                </div>
-                            </div>
-                        </div>
+                            ))
+                        )}
                     </div>
                 </div>
             </div>
@@ -84,17 +91,14 @@ export default function Home() {
                             <p>"Работата с вашия екип беше удоволствие — всичко беше перфектно изпълнено!"</p>
                             <h4>- Мария Иванова</h4>
                         </div>
-
                         <div className="testimonial-item">
                             <p>"Професионализъм, точност и отлично обслужване. Препоръчвам горещо!"</p>
                             <h4>- Георги Петров</h4>
                         </div>
-
                         <div className="testimonial-item">
                             <p>"Щастливи сме да сме част от вашата партньорска мрежа. Отлична комуникация!"</p>
                             <h4>- Елена Стоянова</h4>
                         </div>
-
                         <div className="testimonial-item">
                             <p>"Много отзивчив екип и качествено обслужване. Ще работим отново с вас!"</p>
                             <h4>- Николай Георгиев</h4>
@@ -115,20 +119,35 @@ export default function Home() {
                             <div className="contact-form">
                                 <form id="contact" action="" method="post">
                                     <div className="row">
-                                        <div className="col-lg-12 col-md-12 col-sm-12">
+                                        <div className="col-lg-12">
                                             <fieldset>
-                                                <input name="name" type="text" className="form-control" id="name" placeholder="Full Name" required="" />
+                                                <input
+                                                    name="name"
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="name"
+                                                    placeholder="Full Name"
+                                                    required
+                                                />
                                             </fieldset>
                                         </div>
                                         <div className="col-lg-12">
                                             <fieldset>
-                                                <textarea name="message" rows="6" className="form-control" id="message" placeholder="Your Cooment"
-                                                    required=""></textarea>
+                                                <textarea
+                                                    name="message"
+                                                    rows="6"
+                                                    className="form-control"
+                                                    id="message"
+                                                    placeholder="Your Comment"
+                                                    required
+                                                ></textarea>
                                             </fieldset>
                                         </div>
                                         <div className="col-lg-12">
                                             <fieldset>
-                                                <button type="submit" id="form-submit" className="filled-button">Send Comment</button>
+                                                <button type="submit" id="form-submit" className="filled-button">
+                                                    Send Comment
+                                                </button>
                                             </fieldset>
                                         </div>
                                     </div>
@@ -138,8 +157,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-
-
         </>
     );
 }

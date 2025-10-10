@@ -17,15 +17,16 @@ export default function Navbar() {
     const logged = (
         <>
             <li className="nav-item">
-                <NavLink to="/logout" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                    Изход
-                </NavLink>
-            </li>
-            <li className="nav-item">
                 <NavLink to="/create" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
                     Добави продукт
                 </NavLink>
             </li>
+            <li className="nav-item">
+                <NavLink to="/logout" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                    Изход
+                </NavLink>
+            </li>
+
         </>
     );
     return (
