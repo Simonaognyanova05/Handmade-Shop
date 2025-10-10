@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchLatestProducts } from "../services/fetchLatestProducts";
+import { writeComment } from "../services/writeComment";
 
 export default function Home() {
+    const navigate = useNavigate();
     const [latestProducts, setLatestProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -17,6 +19,23 @@ export default function Home() {
                 console.log(e);
             })
     }, []);
+
+    const commentHandler = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+        let { names, comment } = Object.fromEntries(formData);
+
+        let result = await writeComment({ names, comment });
+
+        if (result.status == 200) {
+            alert("Коментарът е създаден успешно!");
+            e.target.reset();
+            navigate('/');
+        } else {
+            console.log('Error!');
+        }
+    }
 
     return (
         <>
@@ -117,12 +136,12 @@ export default function Home() {
                         </div>
                         <div className="col-md-8">
                             <div className="contact-form">
-                                <form id="contact" action="" method="post">
+                                <form id="contact" onSubmit={commentHandler}>
                                     <div className="row">
                                         <div className="col-lg-12">
                                             <fieldset>
                                                 <input
-                                                    name="name"
+                                                    name="names"
                                                     type="text"
                                                     className="form-control"
                                                     id="name"
@@ -134,7 +153,7 @@ export default function Home() {
                                         <div className="col-lg-12">
                                             <fieldset>
                                                 <textarea
-                                                    name="message"
+                                                    name="comment"
                                                     rows="6"
                                                     className="form-control"
                                                     id="message"
