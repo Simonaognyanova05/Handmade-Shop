@@ -1,4 +1,26 @@
+import { useEffect } from "react";
+import { writeMessage } from "../services/writeMessage";
+import {useNavigate} from 'react-router-dom';
+
 export default function Contacts() {
+    const navigate = useNavigate();
+
+    const sendHandler = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+        const {name, email, subject, message} = Object.fromEntries(formData);
+
+        let result = await writeMessage(name, email, subject, message);
+
+        if(result.status == 200){
+            alert("Съобщението е изпратено успешно!");
+            e.target.reset();
+            navigate('/contacts');
+        }else{
+            console.log("Error");
+        }
+    }
     return (
         <>
             <div className="page-heading contact-heading header-text">
@@ -59,7 +81,7 @@ export default function Contacts() {
                         </div>
                         <div className="col-md-8">
                             <div className="contact-form">
-                                <form id="contact" action="" method="post">
+                                <form id="contact" onSubmit={sendHandler}>
                                     <div className="row">
                                         <div className="col-lg-12 col-md-12 col-sm-12">
                                             <fieldset>
