@@ -22,6 +22,11 @@ export default function Navbar() {
                 </NavLink>
             </li>
             <li className="nav-item">
+                <NavLink to="/messages" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                    Съобщения
+                </NavLink>
+            </li>
+            <li className="nav-item">
                 <NavLink to="/logout" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
                     Изход
                 </NavLink>

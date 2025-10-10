@@ -12,6 +12,7 @@ import Register from "./components/Register/Register";
 import CreateProduct from "./components/Create/Create";
 import Logout from "./components/Logout";
 import Edit from "./components/Edit/Edit";
+import Messages from "./components/Messages/Messages";
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/edit/:id" element={<Edit />} />
+        <Route path="/messages" element={<Messages />} />
+
 
 
       </Routes>

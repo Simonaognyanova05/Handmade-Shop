@@ -1,0 +1,130 @@
+/* === Основен контейнер === */
+.messages-section {
+    background: linear-gradient(180deg, #fff8d9, #ffe977);
+    min-height: 100vh;
+    padding: 4rem 1rem;
+    color: #222;
+    font-family: "Poppins", sans-serif;
+}
+
+/* === Заглавие === */
+.messages-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.messages-header h1 {
+    font-size: 2.2rem;
+    color: #111;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.messages-header p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* === Карти със съобщения === */
+.messages-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.message-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.6rem 1.8rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.message-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.message-text {
+    font-size: 1.05rem;
+    color: #333;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+/* === Долна част на картата === */
+.message-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message-meta h4 {
+    color: #0066ff;
+    margin-bottom: 0.2rem;
+}
+
+.message-meta span {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* === Бутон === */
+.delete-btn {
+    background: #ff4747;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-size: 0.9rem;
+}
+
+.delete-btn:hover {
+    background: #e13a3a;
+    transform: scale(1.03);
+}
+
+.delete-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* === Няма съобщения === */
+.no-messages {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 3rem;
+}
+
+/* === Зареждане === */
+.loading {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 4rem;
+}
+
+/* === Mobile === */
+@media (max-width: 600px) {
+    .messages-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .message-card {
+        padding: 1.2rem;
+    }
+
+    .delete-btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+}
