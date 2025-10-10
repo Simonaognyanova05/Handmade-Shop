@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-
 import { Link, useNavigate } from "react-router-dom";
-import { fetchLatestProducts } from "../services/fetchLatestProducts";
-import { writeComment } from "../services/writeComment";
+import { fetchLatestProducts } from "../../services/fetchLatestProducts";
+import { writeComment } from "../../services/writeComment";
+import { getComments } from "../../services/getComments";
+import CommentItem from "./CommentItem";
 
 export default function Home() {
     const navigate = useNavigate();
     const [latestProducts, setLatestProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [comments, setComments] = useState([]);
 
     useEffect(() => {
         fetchLatestProducts()
@@ -36,6 +38,16 @@ export default function Home() {
             console.log('Error!');
         }
     }
+
+    useEffect(() => {
+        getComments()
+        .then(res => {
+            setComments(res);
+        })
+        .catch(e => {
+            console.log(e);
+        })
+    })
 
     return (
         <>
@@ -106,22 +118,10 @@ export default function Home() {
                     </div>
 
                     <div className="testimonials-grid">
-                        <div className="testimonial-item">
-                            <p>"Работата с вашия екип беше удоволствие — всичко беше перфектно изпълнено!"</p>
-                            <h4>- Мария Иванова</h4>
-                        </div>
-                        <div className="testimonial-item">
-                            <p>"Професионализъм, точност и отлично обслужване. Препоръчвам горещо!"</p>
-                            <h4>- Георги Петров</h4>
-                        </div>
-                        <div className="testimonial-item">
-                            <p>"Щастливи сме да сме част от вашата партньорска мрежа. Отлична комуникация!"</p>
-                            <h4>- Елена Стоянова</h4>
-                        </div>
-                        <div className="testimonial-item">
-                            <p>"Много отзивчив екип и качествено обслужване. Ще работим отново с вас!"</p>
-                            <h4>- Николай Георгиев</h4>
-                        </div>
+                        {
+                            comments.map(comment => <CommentItem key={comment.id} comment={comment} />)
+                        }
+                        
                     </div>
                 </div>
             </div>
