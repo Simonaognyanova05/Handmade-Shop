@@ -1,7 +1,12 @@
 import './ProductItem.css';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function ProductItem({ product }) {
+export default function ProductItem({ product, onDelete }) {
+    const navigate = useNavigate();
+
+    const handleEdit = () => navigate(`/edit/${product.id}`);
+    const handleDelete = () => onDelete(product.id);
+
     return (
         <div className="col-lg-4 col-md-4 all des">
             <div className="product-item">
@@ -10,27 +15,17 @@ export default function ProductItem({ product }) {
                 </div>
 
                 <div className="down-content">
-                    <Link to={`/products/${product.id}`}>
-                        <h4>{product.title}</h4>
-                    </Link>
+                    <h4>{product.title}</h4>
                     <p>{product.subtitle}</p>
 
-                    
-                        <div className="product-actions">
-                            <button
-                                className="btn edit-btn"
-                               
-                            >
-                                Редактиране
-                            </button>
-                            <button
-                                className="btn delete-btn"
-                                
-                            >
-                                Изтриване
-                            </button>
-                        </div>
-                    
+                    <div className="product-actions">
+                        <button className="btn edit-btn" onClick={handleEdit}>
+                            Редактиране
+                        </button>
+                        <button className="btn delete-btn" onClick={handleDelete}>
+                            Изтриване
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

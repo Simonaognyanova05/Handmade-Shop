@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../services/getProducts";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../config/firebase";
 import ProductItem from "./ProductItem";
 
 export default function Products() {
@@ -8,12 +9,36 @@ export default function Products() {
 
     useEffect(() => {
         async function fetchProducts() {
-            const data = await getProducts();
-            setProducts(data);
-            setLoading(false);
+            try {
+                const querySnapshot = await getDocs(collection(db, "products"));
+                const data = querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setProducts(data);
+            } catch (error) {
+                console.error("Грешка при зареждане на продуктите:", error);
+            } finally {
+                setLoading(false);
+            }
         }
+
         fetchProducts();
     }, []);
+
+    const handleDelete = async (id) => {
+        const confirmDelete = window.confirm("Сигурни ли сте, че искате да изтриете този продукт?");
+        if (!confirmDelete) return;
+
+        try {
+            await deleteDoc(doc(db, "products", id));
+            // ✅ премахва от UI без refresh
+            setProducts((prev) => prev.filter((p) => p.id !== id));
+        } catch (error) {
+            console.error("Грешка при изтриване:", error);
+            alert("Възникна грешка при изтриване на продукта.");
+        }
+    };
 
     if (loading) {
         return <p style={{ textAlign: "center" }}>Зареждане...</p>;
@@ -52,21 +77,27 @@ export default function Products() {
                             <div className="filters-content">
                                 <div className="row grid">
                                     {products.map((product) => (
-                                        <ProductItem key={product.id} product={product} />
+                                        <ProductItem
+                                            key={product.id}
+                                            product={product}
+                                            onDelete={handleDelete}
+                                        />
                                     ))}
                                 </div>
                             </div>
                         </div>
 
-                        <div className="col-md-12">
-                            <ul className="pages">
-                                <li><a href="#">1</a></li>
-                                <li className="active"><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#"><i className="fa fa-angle-double-right"></i></a></li>
-                            </ul>
-                        </div>
+                        {products.length > 6 && (
+                            <div className="col-md-12">
+                                <ul className="pages">
+                                    <li><a href="#">1</a></li>
+                                    <li className="active"><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#"><i className="fa fa-angle-double-right"></i></a></li>
+                                </ul>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
