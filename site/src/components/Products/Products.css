@@ -1,0 +1,32 @@
+.pages {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.pages li button {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pages li button:hover {
+    background-color: #f0f0f0;
+}
+
+.pages li button.active {
+    background-color: #E00000;
+    color: white;
+    border-color: #E00000;
+}
+
+.pages li button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

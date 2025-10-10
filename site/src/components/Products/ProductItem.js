@@ -1,5 +1,5 @@
 import './ProductItem.css';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ProductItem({ product, onDelete }) {
     const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function ProductItem({ product, onDelete }) {
                     <img src={product.img1} alt={product.title} />
                 </div>
 
-                <div className="down-content">
+                <Link to={`/products/${product.id}`}> <div className="down-content">
                     <h4>{product.title}</h4>
                     <p>{product.subtitle}</p>
 
@@ -26,7 +26,7 @@ export default function ProductItem({ product, onDelete }) {
                             Изтриване
                         </button>
                     </div>
-                </div>
+                </div></Link>
             </div>
         </div>
     );
