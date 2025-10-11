@@ -13,6 +13,7 @@ import CreateProduct from "./components/Create/Create";
 import Logout from "./components/Logout";
 import Edit from "./components/Edit/Edit";
 import Messages from "./components/Messages/Messages";
+import ForgotPassword from "./components/ForgottenPass/ForgottenPass";
 
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/edit/:id" element={<Edit />} />
         <Route path="/messages" element={<Messages />} />
+        <Route path="/forgottenPass" element={<ForgotPassword />} />
+
 
 
 

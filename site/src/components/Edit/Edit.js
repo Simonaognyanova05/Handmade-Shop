@@ -25,8 +25,8 @@ export default function Edit() {
                 const data = await getProductById(id);
                 if (data) setRoom(data);
             } catch (err) {
-                console.error("Грешка при зареждане на офертата:", err);
-                alert("Неуспешно зареждане на информацията.");
+                console.error("Error loading article:", err);
+                alert("Failed to load information.");
             } finally {
                 setLoading(false);
             }
@@ -46,30 +46,30 @@ export default function Edit() {
         e.preventDefault();
         try {
             const result = await edit(id, product);
-            alert("Офертата е обновена успешно!");
+            alert("The article has been updated successfully!");
             navigate("/products");
         } catch (err) {
             console.error(err);
-            alert("Възникна грешка при запазването.");
+            alert("An error occured while saving.");
         }
     };
 
     if (loading) {
-        return <p className="text-center mt-10">Зареждане...</p>;
+        return <p className="text-center mt-10">Loading...</p>;
     }
 
     return (
         <div className="login-page">
             <div className="login-box">
-                <h2>Редактиране на оферта</h2>
+                <h2>Edit article</h2>
 
                 <form onSubmit={editHandler}>
                     <div className="form-group">
-                        <label>Заглавие</label>
+                        <label>Title</label>
                         <input
                             type="text"
                             name="title"
-                            placeholder="Въведете заглавие на офертата"
+                            placeholder="Enter article title"
                             value={product.title}
                             onChange={handleChange}
                             required
@@ -77,11 +77,11 @@ export default function Edit() {
                     </div>
 
                     <div className="form-group">
-                        <label>Подзаглавие</label>
+                        <label>Subtitle</label>
                         <input
                             type="text"
                             name="subtitle"
-                            placeholder="Въведете подзаглавие"
+                            placeholder="Enter article subtitle"
                             value={product.subtitle}
                             onChange={handleChange}
                             required
@@ -89,10 +89,10 @@ export default function Edit() {
                     </div>
 
                     <div className="form-group">
-                        <label>Описание</label>
+                        <label>Description</label>
                         <textarea
                             name="description"
-                            placeholder="Въведете описание"
+                            placeholder="Enter description"
                             value={product.description}
                             onChange={handleChange}
                             rows="5"
@@ -101,11 +101,11 @@ export default function Edit() {
                     </div>
 
                     <div className="form-group">
-                        <label>Снимка (URL)</label>
+                        <label>Image (URL)</label>
                         <input
                             type="text"
                             name="img1"
-                            placeholder="Въведете линк към снимка"
+                            placeholder="Enter image link"
                             value={product.img1}
                             onChange={handleChange}
                             required
@@ -113,7 +113,7 @@ export default function Edit() {
                     </div>
 
                     <button type="submit" className="login-btn">
-                        💾 Запази промените
+                        💾 Save changes
                     </button>
                 </form>
             </div>

@@ -23,7 +23,7 @@ export default function Login() {
         try {
             const user = await login(email, password);
             onLogin(user);
-            setSuccess("Успешно влизане!");
+            setSuccess("Successful login!");
             navigate('/');
         } catch (err) {
             console.error("LoginHandler error:", err.message);
@@ -34,26 +34,24 @@ export default function Login() {
     return (
         <div className="login-page">
             <div className="login-box">
-                <h2>Вход</h2>
+                <h2>Login</h2>
                 {error && <div className="error-message">{error}</div>}
                 {success && <div className="success-message">{success}</div>}
                 <form onSubmit={loginHandler}>
                     <div className="form-group">
-                        <label>Имейл</label>
-                        <input type="email" placeholder="Въведете имейл" name="email" required />
+                        <label>E-Mail</label>
+                        <input type="email" placeholder="Enter your E-mail" name="email" required />
                     </div>
 
                     <div className="form-group">
-                        <label>Парола</label>
-                        <input type="password" placeholder="Въведете парола" name="password" required />
+                        <label>Password</label>
+                        <input type="password" placeholder="Enter your password" name="password" required />
                     </div>
 
-                    <button type="submit" className="login-btn">Влез</button>
+                    <button type="submit" className="login-btn">Login</button>
 
                     <div className="extra-links">
-                        <Link to="/forgot-password">Забравена парола?</Link>
-                        <span> | </span>
-                        <Link to="/register">Регистрация</Link>
+                        <Link to="/forgottenPass">Forgotten password?</Link>
                     </div>
                 </form>
             </div>

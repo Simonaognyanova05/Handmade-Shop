@@ -14,20 +14,22 @@ export default function ProductItem({ product, onDelete }) {
                     <img src={product.img1} alt={product.title} />
                 </div>
 
-                <Link to={`/products/${product.id}`}> <div className="down-content">
-                    <h4>{product.title}</h4>
-                    <p>{product.subtitle}</p>
+                <div className="down-content">
+                    <Link to={`/products/${product.id}`}>
+                        <h4>{product.title}</h4>
+                        <p>{product.subtitle}</p>
+                    </Link>
+                </div>
 
-                    <div className="product-actions">
-                        <button className="btn edit-btn" onClick={handleEdit}>
-                            Редактиране
-                        </button>
-                        <button className="btn delete-btn" onClick={handleDelete}>
-                            Изтриване
-                        </button>
-                    </div>
-                </div></Link>
+                <div className="product-actions">
+                    <button className="btn edit-btn" onClick={handleEdit} style={{ margin: '20px' }}>
+                        Edit
+                    </button>
+                    <button className="btn delete-btn" onClick={handleDelete}>
+                        Delete
+                    </button>
+                </div>
             </div>
-        </div>
+        </div >
     );
 }

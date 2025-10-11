@@ -17,7 +17,7 @@ export default function CreateProduct() {
         setSuccess("");
 
         if (!title || !description) {
-            setError("Моля, попълнете всички задължителни полета!");
+            setError("Please fill in all required fields!");
             return;
         }
 
@@ -31,8 +31,8 @@ export default function CreateProduct() {
 
         try {
             const created = await createProduct(product);
-            console.log("Създаден продукт:", created);
-            setSuccess("Продуктът е създаден успешно!");
+            console.log("Created article:", created);
+            setSuccess("The article was created successfully!");
             setTitle("");
             setSubtitle("");
             setDescription([""]);
@@ -45,16 +45,16 @@ export default function CreateProduct() {
     return (
         <div className="login-page">
             <div className="login-box">
-                <h2>Създаване на продукт</h2>
+                <h2>Create a new article</h2>
                 {error && <div className="error-message">{error}</div>}
                 {success && <div className="success-message">{success}</div>}
 
                 <form onSubmit={submitHandler}>
                     <div className="form-group">
-                        <label>Заглавие</label>
+                        <label>Title</label>
                         <input
                             type="text"
-                            placeholder="Въведете заглавие на статията"
+                            placeholder="Enter article title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             required
@@ -62,10 +62,10 @@ export default function CreateProduct() {
                     </div>
 
                     <div className="form-group">
-                        <label>Подзаглавие</label>
+                        <label>Subtitle</label>
                         <input
                             type="text"
-                            placeholder="Въведете подзаглавие на статията"
+                            placeholder="Enter article subtitle"
                             value={subtitle}
                             onChange={(e) => setSubtitle(e.target.value)}
                             required
@@ -73,10 +73,10 @@ export default function CreateProduct() {
                     </div>
 
                     <div className="form-group">
-                        <label>Описание</label>
+                        <label>Description</label>
                         <input
                             type="text"
-                            placeholder="Въведете същността на статията"
+                            placeholder="Enter article description"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                             required
@@ -87,14 +87,14 @@ export default function CreateProduct() {
                         <label>Снимка</label>
                         <input
                             type="text"
-                            placeholder="Въведете линк към снимка"
+                            placeholder="Enter image link"
                             value={img1}
                             onChange={(e) => setImg1(e.target.value)}
                             required
                         />
                     </div>
 
-                    <button type="submit" className="login-btn">Създай продукт</button>
+                    <button type="submit" className="login-btn">Create</button>
                 </form>
             </div>
         </div>

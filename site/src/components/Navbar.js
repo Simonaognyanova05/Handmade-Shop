@@ -8,7 +8,7 @@ export default function Navbar() {
         <>
             <li className="nav-item">
                 <NavLink to="/login" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                    Вход
+                    Login
                 </NavLink>
             </li>
         </>
@@ -18,17 +18,17 @@ export default function Navbar() {
         <>
             <li className="nav-item">
                 <NavLink to="/create" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                    Добави продукт
+                    Create article
                 </NavLink>
             </li>
             <li className="nav-item">
                 <NavLink to="/messages" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                    Съобщения
+                    Messages
                 </NavLink>
             </li>
             <li className="nav-item">
                 <NavLink to="/logout" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                    Изход
+                    Logout
                 </NavLink>
             </li>
 
@@ -56,23 +56,23 @@ export default function Navbar() {
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
                                 <NavLink to="/" end className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                                    Начало
+                                    Home
                                 </NavLink>
                             </li>
 
                             <li className="nav-item">
                                 <NavLink to="/about" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                                    За нас
+                                    About Us
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink to="/contacts" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                                    Контакти
+                                    Contacts
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink to="/products" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                                    Нашите продукти
+                                    Articles
                                 </NavLink>
                             </li>
                             {Boolean(user.email) ? logged : unlogged}

@@ -29,7 +29,7 @@ export default function Messages() {
     }, []);
 
     const handleDelete = async (id) => {
-        const confirmDelete = window.confirm("Сигурни ли сте, че това съобщение е прочетено?");
+        const confirmDelete = window.confirm("Are you sure that this message has been read?");
         if (!confirmDelete) return;
 
         try {
@@ -37,24 +37,24 @@ export default function Messages() {
             setMessages((prev) => prev.filter((p) => p.id !== id));
             navigate('/messages');
         } catch (error) {
-            console.error("Грешка при изтриване:", error);
-            alert("Възникна грешка при изтриване на продукта.");
+            console.error("Error while deleting:", error);
+            alert("An error occurred while deleting the article.");
         }
     };
 
     if (loading) {
-        return <p style={{ textAlign: "center", marginTop: "2rem" }}>Зареждане...</p>;
+        return <p style={{ textAlign: "center", marginTop: "2rem" }}>Loading...</p>;
     }
 
     return (
         <div className="comments-page container py-5">
             <div className="text-center mb-5" style={{ marginTop: "100px" }}>
-                <h2 className="fw-bold">💬 Клиентски Съобщения</h2>
-                <p className="text-muted">Прочетете какво споделят нашите клиенти</p>
+                <h2 className="fw-bold">💬 Customer Messages</h2>
+                <p className="text-muted">Read what our client say abaout us</p>
             </div>
 
             {messages.length === 0 ? (
-                <p className="text-center text-muted">Все още няма съобщения.</p>
+                <p className="text-center text-muted">No messages yet.</p>
             ) : (
                 <div className="row g-4">
                     {messages.map((c) => (
@@ -79,7 +79,7 @@ export default function Messages() {
                                     </div>
                                     <div className="product-actions">
                                         <button className="btn delete-btn" style={{ margin: '20px' }} onClick={() => handleDelete(c.id)}>
-                                            Маркирай като прочетено
+                                            Mark as Read
                                         </button>
                                     </div>
                                 </div>

@@ -24,7 +24,7 @@ export default function Products() {
                 }));
                 setProducts(data);
             } catch (error) {
-                console.error("Грешка при зареждане на продуктите:", error);
+                console.error("An error occurred while loading.:", error);
             } finally {
                 setLoading(false);
             }
@@ -34,7 +34,7 @@ export default function Products() {
     }, []);
 
     const handleDelete = async (id) => {
-        const confirmDelete = window.confirm("Сигурни ли сте, че искате да изтриете този продукт?");
+        const confirmDelete = window.confirm("Are you sure you want to delete this article?");
         if (!confirmDelete) return;
 
         try {
@@ -42,8 +42,8 @@ export default function Products() {
             setProducts((prev) => prev.filter((p) => p.id !== id));
             navigate('/products');
         } catch (error) {
-            console.error("Грешка при изтриване:", error);
-            alert("Възникна грешка при изтриване на продукта.");
+            console.error("An error occured while deliting:", error);
+            alert("An error occured while deleting the article!");
         }
     };
 
@@ -60,7 +60,7 @@ export default function Products() {
     };
 
     if (loading) {
-        return <p style={{ textAlign: "center" }}>Зареждане...</p>;
+        return <p style={{ textAlign: "center" }}>Loading...</p>;
     }
 
     return (
@@ -71,7 +71,7 @@ export default function Products() {
                         <div className="col-md-12">
                             <div className="text-content">
                                 <h4>new arrivals</h4>
-                                <h2>{products.length} products</h2>
+                                <h2>{products.length} articles</h2>
                             </div>
                         </div>
                     </div>
@@ -83,12 +83,7 @@ export default function Products() {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="filters">
-                                <ul>
-                                    <li className="active" data-filter="*">All Products</li>
-                                    <li data-filter=".des">Featured</li>
-                                    <li data-filter=".dev">Flash Deals</li>
-                                    <li data-filter=".gra">Last Minute</li>
-                                </ul>
+                               
                             </div>
                         </div>
 
