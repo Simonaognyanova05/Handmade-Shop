@@ -63,7 +63,7 @@
 .price {
     font-size: 22px;
     font-weight: bold;
-    color: #d32f2f;
+    color: #4B5320;
 }
 
 .price span {
@@ -125,8 +125,8 @@
 }
 
 .sizes button:hover {
-    border-color: #d32f2f;
-    color: #d32f2f;
+    border-color: #4B5320;
+    color: #4B5320;
 }
 
 .addons {
@@ -174,7 +174,7 @@ textarea {
 }
 
 .cart-btn {
-    background: #d32f2f;
+    background: #4B5320;
     color: white;
 }
 

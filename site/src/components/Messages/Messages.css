@@ -1,6 +1,6 @@
 /* === Основен контейнер === */
 .messages-section {
-    background: linear-gradient(180deg, #fff8d9, #ffe977);
+    background: linear-gradient(180deg, #fff8d9, #4B5320);
     min-height: 100vh;
     padding: 4rem 1rem;
     color: #222;
@@ -78,7 +78,7 @@
 
 /* === Бутон === */
 .delete-btn {
-    background: #ff4747;
+    background: #4B5320;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -89,7 +89,7 @@
 }
 
 .delete-btn:hover {
-    background: #e13a3a;
+    background: #4B5320;
     transform: scale(1.03);
 }
 

@@ -27,13 +27,13 @@ export default function ForgottenPass() {
 
         <div className="login-page">
             <div className="login-box">
-                <h2>Login</h2>
+                <h2>Forgotten Password</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>E-Mail</label>
                         <input type="email" placeholder="Enter your E-mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
-                    <button type="submit" className="login-btn">Login</button>
+                    <button type="submit" className="login-btn">Send E-mail</button>
 
                     <div className="extra-links">
                         <Link to="/login">Back to Login</Link>
