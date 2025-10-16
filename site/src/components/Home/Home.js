@@ -76,17 +76,17 @@ export default function Home() {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="section-heading">
-                                <h2>Latest Products</h2>
+                                <h2>Latest Articles</h2>
                                 <Link to="/products">
-                                    view all products <i className="fa fa-angle-right"></i>
+                                    view all articles <i className="fa fa-angle-right"></i>
                                 </Link>
                             </div>
                         </div>
 
                         {loading ? (
-                            <p style={{ textAlign: "center" }}>Зареждане...</p>
+                            <p style={{ textAlign: "center" }}>Loading...</p>
                         ) : latestProducts.length === 0 ? (
-                            <p style={{ textAlign: "center" }}>Няма добавени продукти.</p>
+                            <p style={{ textAlign: "center" }}>No articles yet.</p>
                         ) : (
                             latestProducts.map((product) => (
                                 <div className="col-md-4" key={product.id}>

@@ -1,3 +1,4 @@
+
 /* Центриране */
 .login-page {
     display: flex;
@@ -66,7 +67,7 @@
 }
 
 .login-btn:hover {
-    background: #b71c1c;
+    background: black;
 }
 
 /* Линкове */
