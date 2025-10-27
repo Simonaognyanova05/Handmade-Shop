@@ -1,5 +1,5 @@
 .product-item {
-    border: 1px solid #eee;
+    border: 1px solid black;
     border-radius: 10px;
     overflow: hidden;
     background: #fff;
@@ -63,7 +63,7 @@
 
 
 .product-item {
-    border: 1px solid #eee;
+    border: 1px solid black;
     border-radius: 10px;
     overflow: hidden;
     background: #fff;

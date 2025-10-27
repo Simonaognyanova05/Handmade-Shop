@@ -23,7 +23,7 @@
 .pages li button.active {
     background-color: #4B5320;
     color: white;
-    border-color: #4B5320;
+    border-color: black;
 }
 
 .pages li button:disabled {
