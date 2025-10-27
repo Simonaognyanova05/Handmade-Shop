@@ -1,22 +1,25 @@
-
-/* Центриране */
+/* === Центриране на страницата === */
 .login-page {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    /* 👈 променено от center, за да не се натиска при висока форма */
     min-height: 100vh;
     background: linear-gradient(135deg, #f8f9fa, #eceff1);
-    padding: 20px;
+    padding: 40px 20px;
+    overflow-y: auto;
+    /* 👈 ако формата стане по-висока, ще има скрол */
 }
 
-/* Карта */
+/* === Карта (формата) === */
 .login-box {
     background: #fff;
     padding: 40px 30px;
     border-radius: 16px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
+    /* 👈 по-широка форма, за да побере редактора красиво */
 }
 
 .login-box h2 {
@@ -26,7 +29,7 @@
     color: #333;
 }
 
-/* Формата */
+/* === Полета от формата === */
 .form-group {
     margin-bottom: 20px;
     display: flex;
@@ -52,7 +55,37 @@
     outline: none;
 }
 
-/* Бутон */
+/* === ReactQuill редактор === */
+.description-editor {
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+/* Контейнерът на самия редактор */
+.ql-container {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: 'Arial', sans-serif;
+    transition: border 0.2s ease;
+}
+
+/* При фокус да изглежда като input */
+.ql-container:focus-within {
+    border-color: #4B5320;
+}
+
+/* Текстовата част вътре */
+.ql-editor {
+    min-height: 200px;
+    /* 👈 начална височина */
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 15px;
+    overflow-y: hidden;
+    /* 👈 без скрол, ще расте автоматично */
+}
+
+/* === Бутон === */
 .login-btn {
     width: 100%;
     padding: 12px;
@@ -70,7 +103,23 @@
     background: black;
 }
 
-/* Линкове */
+.description-editor * {
+    /* Този селектор е силно агресивен */
+    font-weight: 400 !important;
+    /* !! Това ще презапише bold стила !! */
+}
+
+/* В твоя файл Create.css */
+/* Увери се, че селекторът е достатъчно специфичен */
+
+.description-editor strong,
+.description-editor b,
+.description-editor .ql-bold {
+    font-weight: bold !important;
+    /* Може да опиташ и font-weight: 700 !important; */
+}
+
+/* === Линкове под формата (ако има) === */
 .extra-links {
     margin-top: 15px;
     text-align: center;

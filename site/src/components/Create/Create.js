@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./Create.css";
 import { createProduct } from "../../services/createProduct";
+import ReactQuill from "react-quill-new";
+import "react-quill-new/dist/quill.snow.css";
+
 
 export default function CreateProduct() {
     const [title, setTitle] = useState("");
@@ -24,9 +27,8 @@ export default function CreateProduct() {
         const product = {
             title,
             subtitle,
-            description,
+            description, // 🧠 HTML съдържанието от редактора
             img1,
-
         };
 
         try {
@@ -35,12 +37,36 @@ export default function CreateProduct() {
             setSuccess("The article was created successfully!");
             setTitle("");
             setSubtitle("");
-            setDescription([""]);
-            setImg1([""]);
+            setDescription("");
+            setImg1("");
         } catch (err) {
             setError(err.message);
         }
     };
+
+    // 🧰 Настройки на тулбара
+    const modules = {
+        toolbar: [
+            [{ font: [] }, { size: [] }],
+            ["bold", "italic", "underline", "strike"],
+            [{ color: [] }, { background: [] }],
+            [{ script: "sub" }, { script: "super" }],
+            [{ align: [] }],
+            ["blockquote", "code-block"],
+            ["link", "image"],
+            ["clean"]
+        ],
+    };
+
+    const formats = [
+        "font", "size",
+        "bold", "italic", "underline", "strike",
+        "color", "background",
+        "script", "super", "sub",
+        "align",
+        "blockquote", "code-block",
+        "link", "image",
+    ];
 
     return (
         <div className="login-page">
@@ -74,17 +100,19 @@ export default function CreateProduct() {
 
                     <div className="form-group">
                         <label>Description</label>
-                        <input
-                            type="text"
-                            placeholder="Enter article description"
+                        <ReactQuill
+                            theme="snow"
                             value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            required
+                            onChange={setDescription}
+                            modules={modules}
+                            formats={formats}
+                            placeholder="Enter article description..."
+                            className="description-editor"
                         />
                     </div>
 
-                       <div className="form-group">
-                        <label>Снимка</label>
+                    <div className="form-group">
+                        <label>Image</label>
                         <input
                             type="text"
                             placeholder="Enter image link"

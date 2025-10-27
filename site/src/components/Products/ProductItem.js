@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function ProductItem({ product, onDelete }) {
     const navigate = useNavigate();
-    const {user} = useAuth();
+    const { user } = useAuth();
 
     const handleEdit = () => navigate(`/edit/${product.id}`);
     const handleDelete = () => onDelete(product.id);
@@ -21,20 +21,27 @@ export default function ProductItem({ product, onDelete }) {
                         <h4>{product.title}</h4>
                         <p>{product.subtitle}</p>
                     </Link>
+
+                    {/* 🟢 Ето тук визуализираме description с HTML */}
+                    {product.description && (
+                        <div
+                            className="product-description"
+                            dangerouslySetInnerHTML={{ __html: product.description }}
+                        />
+                    )}
                 </div>
-                {
-                    Boolean(user.email)
-                    ?    <div className="product-actions">
-                    <button className="btn edit-btn" onClick={handleEdit} style={{ margin: '20px' }}>
-                        Edit
-                    </button>
-                    <button className="btn delete-btn" onClick={handleDelete}>
-                        Delete
-                    </button>
-                </div>
-                : ''
-                }
+
+                {Boolean(user?.email) && (
+                    <div className="product-actions">
+                        <button className="btn edit-btn" onClick={handleEdit} style={{ margin: '20px' }}>
+                            Edit
+                        </button>
+                        <button className="btn delete-btn" onClick={handleDelete}>
+                            Delete
+                        </button>
+                    </div>
+                )}
             </div>
-        </div >
+        </div>
     );
 }
