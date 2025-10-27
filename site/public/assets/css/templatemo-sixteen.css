@@ -11,7 +11,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FFFFE0;
+  background-color: #fff;
 }
 p {
 	margin-bottom: 0px;
@@ -56,12 +56,12 @@ ul.social-icons li a {
 
 ul.social-icons li a:hover {
 	background-color: #8A9A5B;
-	color: #FFFFE0;
+	color: #fff;
 }
 
 a.filled-button {
 	background-color: #8A9A5B;
-	color: #FFFFE0;
+	color: #fff;
 	font-size: 14px;
 	text-transform: capitalize;
 	font-weight: 300;
@@ -79,7 +79,7 @@ a.filled-button:hover {
 .section-heading {
 	text-align: left;
 	margin-bottom: 60px;
-	border-bottom: 1px solid #8A9A5B;
+	border-bottom: 1px solid black;
 }
 
 .section-heading h2 {
@@ -118,7 +118,7 @@ a.filled-button:hover {
 }
 
 .page-heading .text-content h2 {
-	color: #FFFFE0;
+	color: #fff;
 	font-size: 62px;
 	text-transform: uppercase;
 	letter-spacing: 5px;
@@ -133,7 +133,7 @@ a.filled-button:hover {
   bottom: 0;
   position: fixed;
   z-index: 9999999;
-  color: #FFFFE0;
+  color: #fff;
 }
 
 #preloader .jumper {
@@ -149,7 +149,7 @@ a.filled-button:hover {
 }
 
 #preloader .jumper > div {
-  background-color: #FFFFE0;
+  background-color: #fff;
   width: 10px;
   height: 10px;
   border-radius: 100%;
@@ -225,7 +225,7 @@ header .navbar {
 .background-header {
 	top: 0;
 	position: fixed;
-	background-color: #FFFFE0!important;
+	background-color: #fff!important;
 	box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
 }
 .background-header .navbar-brand h2 {
@@ -247,7 +247,7 @@ header .navbar {
 	outline: none;
 }
 .navbar .navbar-brand h2 {
-	color: #FFFFE0;
+	color: #fff;
 	text-transform: uppercase;
 	font-size: 24px;
 	font-weight: 700;
@@ -274,7 +274,7 @@ header .navbar {
 	font-size: 15px;
 	font-weight: 500;
 	letter-spacing: 0.5px;
-	color: #FFFFE0;
+	color: #fff;
 	transition: all 0.5s;
 	margin-top: 5px;
 }
@@ -283,16 +283,16 @@ header .navbar {
 .navbar .navbar-nav .nav-link.active,
 .navbar .navbar-nav .nav-link.show,
 .navbar .navbar-nav .show>.nav-link {
-	color: #FFFFE0;
+	color: #fff;
 	padding-bottom: 25px;
-	border-bottom: 3px solid #8A9A5B;
+	border-bottom: 3px solid black;
 }
 .navbar .navbar-toggler-icon {
 	background-image: none;
 }
 .navbar .navbar-toggler {
-	border-color: #8A9A5B;
-	background-color: #FFFFE0;	
+	border-color: black;
+	background-color: #fff;	
 	height: 36px;
 	outline: none;
 	border-radius: 0px;
@@ -362,7 +362,7 @@ header .navbar {
 }
 
 .banner .text-content h2 {
-	color: #FFFFE0;
+	color: #fff;
 	font-size: 62px;
 	text-transform: uppercase;
 	letter-spacing: 5px;
@@ -396,7 +396,7 @@ header .navbar {
     outline: none
 }
 .owl-banner .owl-dots .owl-dot.active {
-    background-color: #FFFFE0;
+    background-color: #fff;
     opacity: 1;
 }
 
@@ -418,7 +418,7 @@ header .navbar {
 }
 
 .product-item {
-	border: 1px solid #8A9A5B;
+	border: 1px solid black;
 	margin-bottom: 30px;
 }
 
@@ -478,7 +478,7 @@ header .navbar {
 }
 
 .about-features p {
-	border-bottom: 1px solid #8A9A5B;
+	border-bottom: 1px solid black;
 	padding-bottom: 20px;
 }
 
@@ -492,7 +492,7 @@ header .navbar {
 }
 
 .best-features .container .row {
-	border-bottom: 1px solid #8A9A5B;
+	border-bottom: 1px solid black;
 	padding-bottom: 60px;
 }
 
@@ -549,16 +549,12 @@ header .navbar {
 	margin-top: 20px;
 }
 
-
-
-
-
 /* Call To Action */
 
 .call-to-action .inner-content {
 	margin-top: 60px;
 	padding: 30px;
-	background-color: #FFFFE0;
+	background-color: #fff;
 	border-radius: 5px;
 }
 
@@ -591,7 +587,7 @@ footer {
 }
 
 footer .inner-content {
-	border-top: 1px solid #8A9A5B;
+	border-top: 1px solid black;
 	margin-top: 60px;
 	padding: 60px 0px;
 }
@@ -616,7 +612,7 @@ footer .inner-content p a {
 
 .products .filters {
 	text-align: center;
-	border-bottom: 1px solid #8A9A5B;
+	border-bottom: 1px solid black;
 	padding-bottom: 10px;
 	margin-bottom: 60px;
 }
@@ -652,7 +648,7 @@ footer .inner-content p a {
 	height: 44px;
 	display: inline-block;
 	line-height: 42px;
-	border: 1px solid #8A9A5B;
+	border: 1px solid black;
 	font-size: 15px;
 	font-weight: 700;
 	color: #121212;
@@ -662,8 +658,8 @@ footer .inner-content p a {
 .products ul.pages li a:hover,
 .products ul.pages li.active a {
 	background-color: #8A9A5B;
-	border-color: #8A9A5B;
-	color: #FFFFE0;
+	border-color: black;
+	color: #fff;
 }
 
 
@@ -675,7 +671,7 @@ footer .inner-content p a {
 }
 
 .team-member {
-	border: 1px solid #8A9A5B;
+	border: 1px solid black;
 	margin-bottom: 30px;
 }
 
@@ -715,7 +711,7 @@ footer .inner-content p a {
 }
 
 .team-member .thumb-container .hover-effect .hover-content ul.social-icons li a:hover {
-	background-color: #FFFFE0;
+	background-color: #fff;
 	color: #8A9A5B;
 }
 
@@ -768,12 +764,12 @@ footer .inner-content p a {
 	text-align: center;
 	line-height: 100px;
 	background-color: #8A9A5B;
-	color: #FFFFE0;
+	color: #fff;
 	font-size: 32px;
 }
 
 .services .service-item .down-content {
-	background-color: #FFFFE0;
+	background-color: #fff;
 	padding: 40px 30px;
 }
 
@@ -818,7 +814,7 @@ footer .inner-content p a {
 }
 
 .find-us p {
-	border-bottom: 1px solid #8A9A5B;
+	border-bottom: 1px solid black;
 	padding-bottom: 30px;
 	margin-bottom: 30px;
 }
@@ -847,14 +843,14 @@ footer .inner-content p a {
 	height: 44px;
 	display: inline-block;
 	line-height: 42px;
-	border: 1px solid #8A9A5B;
+	border: 1px solid black;
 	border-radius: 0px;
 	margin-bottom: 30px;
 }
 
 .contact-form input:focus {
 	box-shadow: none;
-	border: 1px solid #8A9A5B;
+	border: 1px solid black;
 }
 
 .contact-form textarea {
@@ -864,7 +860,7 @@ footer .inner-content p a {
 	min-height: 120px;
 	height: 120px;
 	max-height: 180px;
-	border: 1px solid #8A9A5B;
+	border: 1px solid black;
 	border-radius: 0px;
 	margin-bottom: 30px;
 }
@@ -920,11 +916,11 @@ footer .inner-content p a {
 }
 
 .accordion li:first-child {
-	border-top: 1px solid #8A9A5B;
+	border-top: 1px solid black;
 }
 
 .accordion li {
-	border-bottom: 1px solid #8A9A5B;
+	border-bottom: 1px solid black;
 	padding: 15px 0px;
 }
 
@@ -1022,11 +1018,11 @@ footer .inner-content p a {
 	    left: 0;
 	    width: 100%;
 	    text-align: center;
-	    background-color: #FFFFE0;
+	    background-color: #fff;
 	    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
 	}
 	.navbar .navbar-nav .nav-item {
-		border-bottom: 1px solid #8A9A5B;
+		border-bottom: 1px solid black;
 	}
 	.navbar .navbar-nav .nav-item:last-child {
 		border-bottom: none;
