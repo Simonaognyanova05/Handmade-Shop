@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./Edit.css";
-import {edit} from '../../services/edit';
-import {getProductById} from '../../services/getProductById';
+import { edit } from "../../services/edit";
+import { getProductById } from "../../services/getProductById";
+// 1. 🌟 Добавяме импорт за ReactQuill и стиловете
+import ReactQuill from "react-quill-new";
+import "react-quill-new/dist/quill.snow.css";
 
 
 export default function Edit() {
     const navigate = useNavigate();
     const { id } = useParams();
 
-    const [product, setRoom] = useState({
+    // 2. 📝 Инициализираме състоянието, както преди
+    const [product, setProduct] = useState({
         title: "",
         subtitle: "",
-        description: "",
+        description: "", // Това ще държи HTML съдържанието
         img1: "",
     });
 
@@ -23,7 +27,7 @@ export default function Edit() {
         const fetchOffer = async () => {
             try {
                 const data = await getProductById(id);
-                if (data) setRoom(data);
+                if (data) setProduct(data); // ⬅️ Променено setRoom на setProduct
             } catch (err) {
                 console.error("Error loading article:", err);
                 alert("Failed to load information.");
@@ -34,17 +38,52 @@ export default function Edit() {
         fetchOffer();
     }, [id]);
 
-    const handleChange = (e) => {
-        setRoom({
+    // 3. ⚙️ Функции за промяна на състоянието
+    const handleInputChange = (e) => {
+        setProduct({
             ...product,
             [e.target.name]: e.target.value,
         });
     };
 
+    // Тази функция ще се използва само за ReactQuill (description)
+    const handleQuillChange = (value) => {
+        setProduct({
+            ...product,
+            description: value,
+        });
+    };
+
+    // 4. 🧰 Настройки на тулбара (същите като в CreateProduct)
+    const modules = {
+        toolbar: [
+            [{ font: [] }, { size: [] }],
+            ["bold", "italic", "underline", "strike"],
+            [{ color: [] }, { background: [] }],
+            [{ script: "sub" }, { script: "super" }],
+            [{ align: [] }],
+            ["blockquote", "code-block"],
+            ["link", "image"],
+            ["clean"]
+        ],
+    };
+
+    const formats = [
+        "font", "size",
+        "bold", "italic", "underline", "strike",
+        "color", "background",
+        "script", "super", "sub",
+        "align",
+        "blockquote", "code-block",
+        "link", "image",
+    ];
+
+
     // 🟢 Запазване на промените
     const editHandler = async (e) => {
         e.preventDefault();
         try {
+            // Уверете се, че използвате правилния API endpoint за редактиране
             const result = await edit(id, product);
             alert("The article has been updated successfully!");
             navigate("/products");
@@ -71,7 +110,7 @@ export default function Edit() {
                             name="title"
                             placeholder="Enter article title"
                             value={product.title}
-                            onChange={handleChange}
+                            onChange={handleInputChange} // ⬅️ Използваме handleInputChange
                             required
                         />
                     </div>
@@ -83,20 +122,22 @@ export default function Edit() {
                             name="subtitle"
                             placeholder="Enter article subtitle"
                             value={product.subtitle}
-                            onChange={handleChange}
+                            onChange={handleInputChange} // ⬅️ Използваме handleInputChange
                             required
                         />
                     </div>
 
                     <div className="form-group">
                         <label>Description</label>
-                        <textarea
-                            name="description"
-                            placeholder="Enter description"
-                            value={product.description}
-                            onChange={handleChange}
-                            rows="5"
-                            required
+                        {/* 5. 🚀 Заместваме <textarea> с ReactQuill */}
+                        <ReactQuill
+                            theme="snow"
+                            value={product.description} // ⬅️ product.description
+                            onChange={handleQuillChange} // ⬅️ Използваме handleQuillChange
+                            modules={modules}
+                            formats={formats}
+                            placeholder="Enter article description..."
+                            className="description-editor"
                         />
                     </div>
 
@@ -107,7 +148,7 @@ export default function Edit() {
                             name="img1"
                             placeholder="Enter image link"
                             value={product.img1}
-                            onChange={handleChange}
+                            onChange={handleInputChange} // ⬅️ Използваме handleInputChange
                             required
                         />
                     </div>
