@@ -114,19 +114,19 @@ export default function Home() {
             <div className="happy-clients">
                 <div className="container">
                     <div className="section-heading">
-                        <h2>What Our Clients Say</h2>
+                        <h2>Latest Projects</h2>
                     </div>
 
-                    <div className="testimonials-grid">
+                    {/* <div className="testimonials-grid">
                         {
                             comments.map(comment => <CommentItem key={comment.id} comment={comment} />)
                         }
                         
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
-            <div className="send-message">
+            {/* <div className="send-message">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
@@ -175,7 +175,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }

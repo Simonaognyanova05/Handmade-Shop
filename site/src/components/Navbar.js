@@ -4,21 +4,16 @@ import { useAuth } from "../contexts/AuthContext";
 export default function Navbar() {
     const { user } = useAuth();
 
-    const unlogged = (
-        <>
-            <li className="nav-item">
-                <NavLink to="/login" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                    Login
-                </NavLink>
-            </li>
-        </>
-    );
-
     const logged = (
         <>
             <li className="nav-item">
                 <NavLink to="/create" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                    Create article
+                    Add article
+                </NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink to="/createMovie" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                    Add films
                 </NavLink>
             </li>
             <li className="nav-item">
@@ -66,16 +61,17 @@ export default function Navbar() {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink to="/contacts" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                                    Contacts
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
                                 <NavLink to="/products" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
                                     Articles
                                 </NavLink>
                             </li>
-                            {Boolean(user.email) ? logged : unlogged}
+                            <li className="nav-item">
+                                <NavLink to="/contacts" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                                    Contacts
+                                </NavLink>
+                            </li>
+
+                            {Boolean(user.email) ? logged : ""}
 
                         </ul>
                     </div>

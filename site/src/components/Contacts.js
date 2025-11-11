@@ -36,7 +36,7 @@ export default function Contacts() {
                 </div>
             </div>
 
-
+{/* 
             <div className="find-us">
                 <div className="container">
                     <div className="row">
@@ -68,7 +68,7 @@ export default function Contacts() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
 
             <div className="send-message">

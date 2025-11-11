@@ -14,6 +14,7 @@ import Logout from "./components/Logout";
 import Edit from "./components/Edit/Edit";
 import Messages from "./components/Messages/Messages";
 import ForgotPassword from "./components/ForgottenPass/ForgottenPass";
+import CreateMovie from "./components/CreateMovie/CreateMovie";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/details" element={<Details />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/create" element={<CreateProduct />} />
+        <Route path="/createMovie" element={<CreateMovie />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
