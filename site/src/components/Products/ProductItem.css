@@ -61,6 +61,22 @@
     background-color: #4B5320;
 }
 
+.like-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+    color: #333;
+}
+
+.like-btn:hover {
+    transform: scale(1.2);
+}
+
+.like-btn.liked {
+    color: #e63946;
+}
 
 .product-item {
     border: 1px solid black;
