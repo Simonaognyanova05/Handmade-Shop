@@ -15,16 +15,6 @@ export default function MovieItem({ movie, onDelete }) {
                 <div className="team-member">
                     <div className="thumb-container">
                         <img src={movie.img1} alt={movie.title} />
-                        <div className="hover-effect">
-                            <div className="hover-content">
-                                <ul className="social-icons">
-                                    <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-behance"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                     <div className="down-content">
                         <Link to={`/movie/${movie.id}`}>
