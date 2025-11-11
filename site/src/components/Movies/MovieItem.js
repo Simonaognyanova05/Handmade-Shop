@@ -6,7 +6,7 @@ export default function MovieItem({ movie, onDelete }) {
     const navigate = useNavigate();
     const { user } = useAuth();
 
-    const handleEdit = () => navigate(`/edit/${movie.id}`);
+    const handleEdit = () => navigate(`/editMovie/${movie.id}`);
     const handleDelete = () => onDelete(movie.id);
 
     return (

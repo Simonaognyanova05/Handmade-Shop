@@ -34,7 +34,7 @@ export default function Movies() {
     }, []);
 
     const handleDelete = async (id) => {
-        const confirmDelete = window.confirm("Are you sure you want to delete this article?");
+        const confirmDelete = window.confirm("Are you sure you want to delete this movie?");
         if (!confirmDelete) return;
 
         try {
@@ -43,7 +43,7 @@ export default function Movies() {
             navigate('/movies');
         } catch (error) {
             console.error("An error occured while deliting:", error);
-            alert("An error occured while deleting the article!");
+            alert("An error occured while deleting the movie!");
         }
     };
 

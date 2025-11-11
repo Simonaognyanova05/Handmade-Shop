@@ -16,6 +16,7 @@ import Messages from "./components/Messages/Messages";
 import ForgotPassword from "./components/ForgottenPass/ForgottenPass";
 import CreateMovie from "./components/CreateMovie/CreateMovie";
 import Movies from "./components/Movies/Movies";
+import EditMovie from "./components/EditMovie/EditMovie";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/edit/:id" element={<Edit />} />
+        <Route path="/editMovie/:id" element={<EditMovie />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/forgottenPass" element={<ForgotPassword />} />
 
