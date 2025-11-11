@@ -21,14 +21,6 @@ export default function ProductItem({ product, onDelete }) {
                         <h4>{product.title}</h4>
                         <p>{product.subtitle}</p>
                     </Link>
-
-                    {/* 🟢 Ето тук визуализираме description с HTML */}
-                    {product.description && (
-                        <div
-                            className="product-description"
-                            dangerouslySetInnerHTML={{ __html: product.description }}
-                        />
-                    )}
                 </div>
 
                 {Boolean(user?.email) && (

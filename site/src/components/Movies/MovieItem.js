@@ -20,12 +20,6 @@ export default function MovieItem({ movie, onDelete }) {
                         <Link to={`/movie/${movie.id}`}>
                             <h4>{movie.title}</h4>
                             <span>{movie.ganre}</span>
-                            {movie.description && (
-                                <div
-                                    className="product-description"
-                                    dangerouslySetInnerHTML={{ __html: movie.description }}
-                                />
-                            )}
                         </Link>
                     </div>
                     {Boolean(user?.email) && (

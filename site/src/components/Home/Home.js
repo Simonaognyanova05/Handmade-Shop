@@ -4,10 +4,12 @@ import { fetchLatestProducts } from "../../services/fetchLatestProducts";
 import { writeComment } from "../../services/writeComment";
 import { getComments } from "../../services/getComments";
 import CommentItem from "./CommentItem";
+import { fetchLatestMovies } from "../../services/fetchLatestMovies";
 
 export default function Home() {
     const navigate = useNavigate();
     const [latestProducts, setLatestProducts] = useState([]);
+    const [latestMovies, setLatestMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [comments, setComments] = useState([]);
 
@@ -21,33 +23,43 @@ export default function Home() {
                 console.log(e);
             })
     }, []);
-
-    const commentHandler = async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(e.currentTarget);
-        let { names, comment } = Object.fromEntries(formData);
-
-        let result = await writeComment({ names, comment });
-
-        if (result.status == 200) {
-            alert("Коментарът е създаден успешно!");
-            e.target.reset();
-            navigate('/');
-        } else {
-            console.log('Error!');
-        }
-    }
-
     useEffect(() => {
-        getComments()
-        .then(res => {
-            setComments(res);
-        })
-        .catch(e => {
-            console.log(e);
-        })
-    })
+        fetchLatestMovies()
+            .then(res => {
+                setLatestMovies(res);
+                setLoading(false);
+            })
+            .catch(e => {
+                console.log(e);
+            })
+    }, []);
+
+    // const commentHandler = async (e) => {
+    //     e.preventDefault();
+
+    //     const formData = new FormData(e.currentTarget);
+    //     let { names, comment } = Object.fromEntries(formData);
+
+    //     let result = await writeComment({ names, comment });
+
+    //     if (result.status == 200) {
+    //         alert("Коментарът е създаден успешно!");
+    //         e.target.reset();
+    //         navigate('/');
+    //     } else {
+    //         console.log('Error!');
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     getComments()
+    //     .then(res => {
+    //         setComments(res);
+    //     })
+    //     .catch(e => {
+    //         console.log(e);
+    //     })
+    // })
 
     return (
         <>
@@ -113,8 +125,39 @@ export default function Home() {
 
             <div className="happy-clients">
                 <div className="container">
-                    <div className="section-heading">
-                        <h2>Latest Projects</h2>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="section-heading">
+                                    <h2>Latest Movies</h2>
+                                </div>
+                            </div>
+
+                            {loading ? (
+                                <p style={{ textAlign: "center" }}>Loading...</p>
+                            ) : latestMovies.length === 0 ? (
+                                <p style={{ textAlign: "center" }}>No movies yet.</p>
+                            ) : (
+                                latestMovies.map((product) => (
+                                    <div className="col-md-4" key={product.id}>
+                                        <div className="product-item">
+                                            <Link to={`/movie/${product.id}`}>
+                                                <img
+                                                    src={product.img1 || "/assets/images/default.jpg"}
+                                                    alt={product.title}
+                                                />
+                                            </Link>
+                                            <div className="down-content">
+                                                <Link to={`/movie/${product.id}`}>
+                                                    <h4>{product.title}</h4>
+                                                </Link>
+                                                <p>{product.ganre || "Без описание"}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
+                        </div>
                     </div>
 
                     {/* <div className="testimonials-grid">

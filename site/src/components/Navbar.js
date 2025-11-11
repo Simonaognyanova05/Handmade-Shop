@@ -33,9 +33,10 @@ export default function Navbar() {
         <header>
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
-                    <a className="navbar-brand" href="/">
+                    <a href="/" end className="navbar-brand">
                         <h2>Perfectly <em>Splendid</em></h2>
                     </a>
+
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -55,7 +56,7 @@ export default function Navbar() {
                                 </NavLink>
                             </li>
 
-                             <li className="nav-item">
+                            <li className="nav-item">
                                 <NavLink to="/movies" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
                                     Projects
                                 </NavLink>
