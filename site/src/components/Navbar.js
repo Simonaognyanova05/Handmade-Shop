@@ -57,7 +57,7 @@ export default function Navbar() {
 
                              <li className="nav-item">
                                 <NavLink to="/movies" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-                                    Movies
+                                    Projects
                                 </NavLink>
                             </li>
                             <li className="nav-item">
