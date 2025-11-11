@@ -15,6 +15,7 @@ import Edit from "./components/Edit/Edit";
 import Messages from "./components/Messages/Messages";
 import ForgotPassword from "./components/ForgottenPass/ForgottenPass";
 import CreateMovie from "./components/CreateMovie/CreateMovie";
+import Movies from "./components/Movies/Movies";
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/create" element={<CreateProduct />} />
         <Route path="/createMovie" element={<CreateMovie />} />
+        <Route path="/movies" element={<Movies />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
