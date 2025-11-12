@@ -1,13 +1,15 @@
 .nav-inner {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* ✅ Центрира логото и менюто по вертикала */
-  height: 70px; /* фиксирана височина за равномерност */
+  align-items: center; /* ✅ Центрира логото и бутона вертикално */
+  height: 70px;
   padding: 0 20px;
+  background-color: black;
 }
 
 /* === Бранд и лого === */
-.brand {
+.brand,
+.navbar-brand {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -15,6 +17,13 @@
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 1;
+}
+
+.brand h2,
+.navbar-brand h2 {
+  margin: 0;
+  transition: opacity 0.3s ease;
+  color: white;
 }
 
 .navbar-logo {
@@ -26,22 +35,22 @@
   margin-right: 10px;
   object-fit: contain;
   display: flex;
-  align-items: center; /* ✅ Центрира изображението вътре */
+  align-items: center;
 }
 
-/* === Hamburger бутон === */
+/* === Хамбургер бутон === */
 .menu-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  background: white; /* за контраст */
+  background: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   width: 50px;
-  height: 50px; /* ✅ същата височина като логото */
+  height: 50px;
   padding: 0;
   transition: all 0.3s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -54,9 +63,29 @@
 .menu-toggle span {
   width: 24px;
   height: 3px;
-  background: #9ca86c; /* леко зеленикав нюанс */
+  background: #9ca86c;
   border-radius: 2px;
   transition: 0.3s;
+  position: relative;
+}
+
+.menu-toggle span::before,
+.menu-toggle span::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  background: #9ca86c;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.menu-toggle span::before {
+  top: -8px;
+}
+
+.menu-toggle span::after {
+  top: 8px;
 }
 
 /* === При мобилни === */
@@ -66,10 +95,16 @@
   }
 
   .menu-toggle {
-    display: flex; /* показва бутона */
+    display: flex; /* ✅ показва бутона */
   }
 
-  .brand h2 {
-    font-size: 1.1rem;
+  .brand h2,
+  .navbar-brand h2 {
+    display: none !important; /* ✅ скрива текста “Perfectly Splendid” */
+  }
+
+  .navbar-logo {
+    height: 45px;
+    margin-right: 0;
   }
 }
