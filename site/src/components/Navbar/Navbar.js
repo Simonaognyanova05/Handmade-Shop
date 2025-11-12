@@ -73,9 +73,9 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <NavLink to="/" end className="nav-link">
+                <a href="/home" className="nav-link">
                   Home
-                </NavLink>
+                </a>
               </li>
               <li className="nav-item">
                 <NavLink to="/movies" className="nav-link">

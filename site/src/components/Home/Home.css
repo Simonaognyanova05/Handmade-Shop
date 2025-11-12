@@ -76,7 +76,7 @@ header,
     }
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 768px) {
     .banner {
         height: auto;
         padding: 80px 0;
