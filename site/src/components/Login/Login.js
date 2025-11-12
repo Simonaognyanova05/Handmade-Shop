@@ -24,7 +24,7 @@ export default function Login() {
             const user = await login(email, password);
             onLogin(user);
             setSuccess("Successful login!");
-            navigate('/');
+            navigate('/movies');
         } catch (err) {
             console.error("LoginHandler error:", err.message);
             setError(err.message); // Показваме реалната грешка

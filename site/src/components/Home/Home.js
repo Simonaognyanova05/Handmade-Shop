@@ -1,9 +1,7 @@
+import './Home.css';
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchLatestProducts } from "../../services/fetchLatestProducts";
-import { writeComment } from "../../services/writeComment";
-import { getComments } from "../../services/getComments";
-import CommentItem from "./CommentItem";
 import { fetchLatestMovies } from "../../services/fetchLatestMovies";
 
 export default function Home() {
@@ -34,50 +32,66 @@ export default function Home() {
             })
     }, []);
 
-    // const commentHandler = async (e) => {
-    //     e.preventDefault();
-
-    //     const formData = new FormData(e.currentTarget);
-    //     let { names, comment } = Object.fromEntries(formData);
-
-    //     let result = await writeComment({ names, comment });
-
-    //     if (result.status == 200) {
-    //         alert("Коментарът е създаден успешно!");
-    //         e.target.reset();
-    //         navigate('/');
-    //     } else {
-    //         console.log('Error!');
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     getComments()
-    //     .then(res => {
-    //         setComments(res);
-    //     })
-    //     .catch(e => {
-    //         console.log(e);
-    //     })
-    // })
-
     return (
         <>
             <div className="banner header-text">
                 <div className="owl-banner owl-carousel">
                     <div className="banner-item-01">
-                        <div className="text-content"></div>
+                        <div className="text-content">
+                            <h3>Perfectly Splendid</h3>
+                            <h4>This is a small, evolving art project that lives somewhere between cinema, theatre, and everything else that refuses to fit neatly into a box.
+                                We aim to make short films, stage things, and collaborations that speak honestly - even when they’re rough, weird, or unfinished. The plan is simple: create when we can, support others when we can’t, and keep the energy real either way.</h4>
+                        </div>
                     </div>
                     <div className="banner-item-02">
                         <div className="text-content">
-                            <h4>Flash Deals</h4>
-                            <h2>Get your best products</h2>
+                            <h4>Our focus leans toward independent film and theatre, but we don’t stop there. Music videos, visual experiments, mixed-media stuff, micro-performances - if it comes from the heart and has something to say, it belongs here.</h4>
                         </div>
                     </div>
                     <div className="banner-item-03">
                         <div className="text-content">
-                            <h4>Last Minute</h4>
-                            <h2>Grab last minute deals</h2>
+                            <h4>This space exists to share what we make and what we love - work from independent artists whose ideas feel genuine, raw, or just beautifully strange. We’re not chasing mainstream attention, and we’re not faking “indie” either. We care about people who care about art - whatever form it takes.
+
+                                Everything here is made or chosen with intention, even when it looks accidental.</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="happy-clients">
+                <div className="container">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="section-heading">
+                                    <h2>Latest Movies</h2>
+                                </div>
+                            </div>
+
+                            {loading ? (
+                                <p style={{ textAlign: "center" }}>Loading...</p>
+                            ) : latestMovies.length === 0 ? (
+                                <p style={{ textAlign: "center" }}>No movies yet.</p>
+                            ) : (
+                                latestMovies.map((product) => (
+                                    <div className="col-md-4" key={product.id}>
+                                        <div className="product-item">
+                                            <Link to={`/movie/${product.id}`}>
+                                                <img
+                                                    src={product.img1 || "/assets/images/default.jpg"}
+                                                    alt={product.title}
+                                                />
+                                            </Link>
+                                            <div className="down-content">
+                                                <Link to={`/movie/${product.id}`}>
+                                                    <h4>{product.title}</h4>
+                                                </Link>
+                                                <p>{product.ganre || "Без описание"}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
                         </div>
                     </div>
                 </div>
@@ -123,102 +137,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="happy-clients">
-                <div className="container">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="section-heading">
-                                    <h2>Latest Movies</h2>
-                                </div>
-                            </div>
 
-                            {loading ? (
-                                <p style={{ textAlign: "center" }}>Loading...</p>
-                            ) : latestMovies.length === 0 ? (
-                                <p style={{ textAlign: "center" }}>No movies yet.</p>
-                            ) : (
-                                latestMovies.map((product) => (
-                                    <div className="col-md-4" key={product.id}>
-                                        <div className="product-item">
-                                            <Link to={`/movie/${product.id}`}>
-                                                <img
-                                                    src={product.img1 || "/assets/images/default.jpg"}
-                                                    alt={product.title}
-                                                />
-                                            </Link>
-                                            <div className="down-content">
-                                                <Link to={`/movie/${product.id}`}>
-                                                    <h4>{product.title}</h4>
-                                                </Link>
-                                                <p>{product.ganre || "Без описание"}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
-                            )}
-                        </div>
-                    </div>
-
-                    {/* <div className="testimonials-grid">
-                        {
-                            comments.map(comment => <CommentItem key={comment.id} comment={comment} />)
-                        }
-                        
-                    </div> */}
-                </div>
-            </div>
-
-            {/* <div className="send-message">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="section-heading">
-                                <h2>Send us a Comment</h2>
-                            </div>
-                        </div>
-                        <div className="col-md-8">
-                            <div className="contact-form">
-                                <form id="contact" onSubmit={commentHandler}>
-                                    <div className="row">
-                                        <div className="col-lg-12">
-                                            <fieldset>
-                                                <input
-                                                    name="names"
-                                                    type="text"
-                                                    className="form-control"
-                                                    id="name"
-                                                    placeholder="Full Name"
-                                                    required
-                                                />
-                                            </fieldset>
-                                        </div>
-                                        <div className="col-lg-12">
-                                            <fieldset>
-                                                <textarea
-                                                    name="comment"
-                                                    rows="6"
-                                                    className="form-control"
-                                                    id="message"
-                                                    placeholder="Your Comment"
-                                                    required
-                                                ></textarea>
-                                            </fieldset>
-                                        </div>
-                                        <div className="col-lg-12">
-                                            <fieldset>
-                                                <button type="submit" id="form-submit" className="filled-button">
-                                                    Send Comment
-                                                </button>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
         </>
     );
 }

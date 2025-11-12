@@ -1,0 +1,11 @@
+.navbar-brand img {
+    height: 60px;          /* увеличаваш според нуждата — 60px е добро начало */
+    width: auto;           /* запазва пропорциите */
+    background-color: white;
+    border-radius: 6px;
+    padding: 2px 4px;
+    object-fit: contain;
+}
+.navbar-logo{
+    margin-right: 10px;
+}
