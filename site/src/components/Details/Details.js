@@ -55,23 +55,31 @@ export default function Details() {
     };
 
     return (
-        <main className="details-page">
-            <div className="product-gallery">
-                <img src={product.img1} alt={product.title} className="main-image" />
-            </div>
+        <main className="details-wrapper">
 
-            <div className="product-info">
-                <h1>{product.title}</h1>
-                <div className="price">{product.subtitle}</div>
+            <article className="details-article">
 
-                {/* 🟢 Визуализира описанието с HTML формат */}
+                {/* Заглавие */}
+                <h1 className="details-title">{product.title}</h1>
+
+                {/* Subtitle = Price / tagline */}
+                <div className="details-subtitle">{product.subtitle}</div>
+                {/* Изображение */}
+                <img src={product.img1} alt={product.title} className="details-cover" />
+
+
+
+                {/* Описание */}
                 <div
-                    className="description"
+                    className="details-content"
                     dangerouslySetInnerHTML={{
-                        __html: product.description || "<p>Няма описание за този продукт.</p>",
+                        __html: product.description || "<p>Няма описание.</p>"
                     }}
                 />
-            </div>
+
+            </article>
+
         </main>
     );
+
 }

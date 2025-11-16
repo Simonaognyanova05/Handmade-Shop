@@ -34,7 +34,7 @@ export default function Home() {
 
     return (
         <>
-            <div className="page-heading home-heading header-text">
+            <div className="page-heading home-heading header-text" style={{backgroundImage: 'url("/assets/images/img1.jpg")'}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">

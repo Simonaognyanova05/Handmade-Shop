@@ -1,199 +1,72 @@
-/* Основна страница */
-.details-page {
+/* === WRAPPER === */
+.details-wrapper {
     display: flex;
-    gap: 40px;
-    padding: 100px 20px 60px;
-    /* 100px заради navbar-а */
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    /* за responsive */
+    justify-content: center;
+    padding: 120px 20px 60px; /* място за navbar */
 }
 
-/* Галерия */
-.product-gallery {
-    flex: 1 1 400px;
-}
-
-.product-gallery .main-image {
+/* === Основна статия === */
+.details-article {
+    max-width: 760px; /* 🎯 като сайта от линка */
     width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 16px;
-}
-
-.thumbnails {
-    display: flex;
-    gap: 10px;
-}
-
-.thumbnails img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.thumbnails img:hover {
-    transform: scale(1.05);
-}
-
-/* Инфо */
-.product-info {
-    flex: 1 1 400px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
 }
 
-.product-info h1 {
-    font-size: 28px;
-    margin-bottom: 8px;
-}
-
-.rating {
-    font-size: 14px;
-    color: #777;
-    display: flex;
-    gap: 10px;
-}
-
-.price {
-    font-size: 22px;
-    font-weight: bold;
-    color: #4B5320;
-}
-
-.price span {
-    font-size: 14px;
-    color: #666;
-    margin-left: 8px;
-}
-
-.description {
-    font-size: 15px;
-    line-height: 1.5;
-    color: #444;
-}
-
-/* Опции */
-.option h3 {
-    font-size: 16px;
-    margin-bottom: 6px;
-}
-
-.colors {
-    display: flex;
-    gap: 10px;
-}
-
-.color {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    cursor: pointer;
-}
-
-.color.black {
-    background: black;
-}
-
-.color.white {
-    background: white;
-    border: 1px solid #aaa;
-}
-
-.color.beige {
-    background: #d9c7a2;
-}
-
-.sizes {
-    display: flex;
-    gap: 10px;
-}
-
-.sizes button {
-    padding: 6px 14px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: white;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.sizes button:hover {
-    border-color: #4B5320;
-    color: #4B5320;
-}
-
-.addons {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.addons li {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
-}
-
-textarea {
+/* === Снимка === */
+.details-cover {
     width: 100%;
-    min-height: 80px;
-    border: 1px solid #ccc;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* === Заглавие === */
+.details-title {
+    font-size: 34px;
+    line-height: 1.25;
+    margin: 0;
+    font-weight: 700;
+    color: #222;
+}
+
+/* === Subtitle (твоя price/subtitle) === */
+.details-subtitle {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* === Текст === */
+.details-content {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* Оправя HTML тагове от description */
+.details-content p {
+    margin-bottom: 18px;
+}
+
+.details-content img {
+    max-width: 100%;
     border-radius: 8px;
-    padding: 10px;
-    resize: vertical;
-    font-family: inherit;
+    margin: 18px 0;
 }
 
-/* Бутоните */
-.upload-btn,
-.cart-btn {
-    padding: 12px 18px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.upload-btn {
-    background: #eee;
-}
-
-.upload-btn:hover {
-    background: #ddd;
-}
-
-.cart-btn {
-    background: #4B5320;
-    color: white;
-}
-
-.cart-btn:hover {
-    background: #b71c1c;
-}
-
-/* Responsive */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
-    .details-page {
-        flex-direction: column;
-        padding: 90px 15px 40px;
+    .details-wrapper {
+        padding: 100px 15px 40px;
     }
 
-    .product-info h1 {
-        font-size: 22px;
+    .details-title {
+        font-size: 26px;
     }
 
-    .price {
-        font-size: 20px;
+    .details-subtitle {
+        font-size: 16px;
     }
 }

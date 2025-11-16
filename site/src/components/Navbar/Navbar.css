@@ -97,6 +97,10 @@
     display: flex; /* ✅ показва бутона */
   }
 
+  .brand h2,
+  .navbar-brand h2 {
+    display: none !important; /* ✅ скрива текста “Perfectly Splendid” */
+  }
 
   .navbar-logo {
     height: 45px;

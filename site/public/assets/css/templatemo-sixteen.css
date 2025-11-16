@@ -97,16 +97,20 @@ a.filled-button:hover {
 	margin-bottom: 15px;
 }
 
+.home-heading {
+    background-image: url("/assets/images/logo.png");
+}
+
 .products-heading {
-	background-image: url(../images/img7.jpg);
+    background-image: url("/assets/images/img7.jpg");
 }
 
 .about-heading {
-	background-image: url(../images/img5.jpg);
+    background-image: url("/assets/images/img5.jpg");
 }
 
 .contact-heading {
-	background-image: url(../images/img6.jpg);
+    background-image: url("/assets/images/img6.jpg");
 }
 
 .page-heading {
@@ -369,9 +373,7 @@ header .navbar {
 	background-repeat: no-repeat;
 	background-position: center center;
 }
-.home-heading{
-    background-image: url(../images/img1.jpg);
-}
+
 
 .banner .banner-item {
 	max-height: 600px;
