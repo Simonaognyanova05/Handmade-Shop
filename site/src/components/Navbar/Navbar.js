@@ -45,7 +45,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg">
         <div className="container">
           {/* === Brand + Logo === */}
-          <a href="/" className="navbar-brand d-flex align-items-center">
+          <NavLink to="/" className="navbar-brand d-flex align-items-center">
             <img
               src="/assets/images/PerfectlySplendid.png"
               alt="Logo"
@@ -54,7 +54,7 @@ export default function Navbar() {
             <h2>
               Perfectly Splendid
             </h2>
-          </a>
+          </NavLink>
 
           {/* === Mobile toggle === */}
           <button
@@ -73,9 +73,9 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a href="/home" className="nav-link">
+                <NavLink to="/" className="nav-link">
                   Home
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink to="/movies" className="nav-link">

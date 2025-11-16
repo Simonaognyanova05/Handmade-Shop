@@ -29,7 +29,6 @@
 .navbar-logo {
   height: 50px;
   width: auto;
-  background: white;
   border-radius: 6px;
   padding: 3px 6px;
   margin-right: 10px;
@@ -98,10 +97,6 @@
     display: flex; /* ✅ показва бутона */
   }
 
-  .brand h2,
-  .navbar-brand h2 {
-    display: none !important; /* ✅ скрива текста “Perfectly Splendid” */
-  }
 
   .navbar-logo {
     height: 45px;

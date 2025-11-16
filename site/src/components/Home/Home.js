@@ -34,29 +34,6 @@ export default function Home() {
 
     return (
         <>
-            {/* <div className="banner header-text">
-                <div className="owl-banner owl-carousel">
-                    <div className="banner-item-01">
-                        <div className="text-content">
-                            <h3>Perfectly Splendid</h3>
-                            <h4>This is a small, evolving art project that lives somewhere between cinema, theatre, and everything else that refuses to fit neatly into a box.
-                                We aim to make short films, stage things, and collaborations that speak honestly - even when they’re rough, weird, or unfinished. The plan is simple: create when we can, support others when we can’t, and keep the energy real either way.</h4>
-                        </div>
-                    </div>
-                    <div className="banner-item-02">
-                        <div className="text-content">
-                            <h4>Our focus leans toward independent film and theatre, but we don’t stop there. Music videos, visual experiments, mixed-media stuff, micro-performances - if it comes from the heart and has something to say, it belongs here.</h4>
-                        </div>
-                    </div>
-                    <div className="banner-item-03">
-                        <div className="text-content">
-                            <h4>This space exists to share what we make and what we love - work from independent artists whose ideas feel genuine, raw, or just beautifully strange. We’re not chasing mainstream attention, and we’re not faking “indie” either. We care about people who care about art - whatever form it takes.
-
-                                Everything here is made or chosen with intention, even when it looks accidental.</h4>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
             <div className="page-heading home-heading header-text">
                 <div className="container">
                     <div className="row">
