@@ -96,13 +96,14 @@ export default function Movies() {
                                 <div className="col-md-12">
                                     <div className="filters-content">
                                         <div className="row grid">
-                                            {currentProducts.map((movie) => (
+                                            {currentProducts.length > 0 ? currentProducts.map((movie) => (
                                                 <MovieItem
                                                     key={movie.id}
                                                     movie={movie}
                                                     onDelete={handleDelete}
                                                 />
-                                            ))}
+                                            ))
+                                        : <p>No movies yet.</p>}
                                         </div>
                                     </div>
                                 </div>
