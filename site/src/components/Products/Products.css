@@ -1,3 +1,4 @@
+/* Pagination */
 .pages {
     display: flex;
     justify-content: center;
@@ -29,4 +30,120 @@
 .pages li button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+/* ⭐ COMMENTS SECTION */
+.comments-wrapper {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.comments-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 40px;
+}
+
+/* ⭐ FORM */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.comment-form button {
+    background: #4B5320;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.comment-form button:hover {
+    background: #3d451a;
+}
+
+/* Общ контейнер — центрира всичко и държи еднаква ширина */
+.comments-section {
+    max-width: 700px;
+    /* ШИРИНАТА на коментарите И формата */
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* Коментарите подредени вертикално */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Елемент всеки коментар */
+.testimonial-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fafafa;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Формата — същата ширина като коментарите */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    /* ← прави я точно колкото коментарите */
+}
+
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.comment-form button {
+    padding: 10px 20px;
+    border: none;
+    background: #4B5320;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    opacity: 0.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .comments-wrapper {
+        padding: 0 15px;
+    }
 }
