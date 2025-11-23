@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import ProductItem from "./ProductItem";
-import CommentItem from "./CommentItem";
-import { writeComment } from "../../services/writeComment";
-import { getComments } from "../../services/getComments";
 import "./Products.css";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +9,6 @@ export default function Products() {
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [comments, setComments] = useState([]);
 
     // Pagination
     const [currentPage, setCurrentPage] = useState(1);
@@ -37,11 +33,7 @@ export default function Products() {
         fetchProducts();
     }, []);
 
-    useEffect(() => {
-        getComments()
-            .then(res => setComments(res))
-            .catch(e => console.log(e));
-    }, []);
+    
 
     const handleDelete = async (id) => {
         const confirmDelete = window.confirm("Are you sure you want to delete this article?");
@@ -57,21 +49,7 @@ export default function Products() {
         }
     };
 
-    const commentHandler = async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        let { names, comment } = Object.fromEntries(formData);
-
-        let result = await writeComment({ names, comment });
-
-        if (result.status === 200) {
-            alert("Коментарът е създаден успешно!");
-            e.target.reset();
-            navigate('/products');
-        } else {
-            console.log('Error!');
-        }
-    };
+    
 
     // Pagination logic
     const totalPages = Math.ceil(products.length / itemsPerPage);
@@ -162,28 +140,7 @@ export default function Products() {
                 </div>
             </div>
 
-            {/* COMMENTS + FORM */}
-            <div className="comments-wrapper">
-                <h3 className="comments-title">What Our Clients Say</h3>
-                <div className="comments-section">
-                    <div className="comments-list">
-
-                        {comments.length > 0
-                            ?
-                            comments.map(c => (
-                                <CommentItem key={c.id} comment={c} />
-                            ))
-                            : <p>No comments.</p>
-                        }
-                    </div>
-
-                    <form className="comment-form" onSubmit={commentHandler}>
-                        <input name="names" type="text" placeholder="Full Name" required />
-                        <textarea name="comment" rows="5" placeholder="Your Comment" required></textarea>
-                        <button type="submit">Send Comment</button>
-                    </form>
-                </div>
-            </div>
+            
         </>
     );
 }

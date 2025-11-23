@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getProductById } from "../../services/getProductById";
-import { addToCart } from "../../services/addToCart";
-import { auth } from "../../config/firebase";
+import { writeComment } from "../../services/writeComment";
+import { getComments } from "../../services/getComments";
+import CommentItem from "./CommentItem";
 import "./Details.css";
 
 export default function Details() {
     const { id } = useParams();
+    const navigate = useNavigate();
+
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
-    const [selectedSize, setSelectedSize] = useState("");
-    const [note, setNote] = useState("");
+    const [comments, setComments] = useState([]);
 
     useEffect(() => {
         const fetchProduct = async () => {
             try {
                 const result = await getProductById(id);
-                if (result) {
-                    setProduct(result);
-                } else {
-                    setError("Продуктът не е намерен!");
-                }
+                if (result) setProduct(result);
+                else setError("Продуктът не е намерен!");
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -32,54 +31,76 @@ export default function Details() {
         fetchProduct();
     }, [id]);
 
+    useEffect(() => {
+        loadComments();
+    }, [id]);
+
+    async function loadComments() {
+        try {
+            const res = await getComments(id);
+            setComments(res);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    const commentHandler = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        let { names, comment } = Object.fromEntries(formData);
+
+        let result = await writeComment({
+            names,
+            comment,
+            productId: id, // важна добавка
+        });
+
+        if (result.status === 200) {
+            e.target.reset();
+            loadComments();
+        }
+    };
+
     if (loading) return <p>Зареждане...</p>;
     if (error) return <p className="error">{error}</p>;
     if (!product) return null;
 
-    const handleAddToCart = async () => {
-        if (!auth.currentUser) {
-            alert("Моля, влезте в профила си!");
-            return;
-        }
-        if (!selectedSize) {
-            alert("Моля, изберете размер!");
-            return;
-        }
-
-        try {
-            await addToCart(auth.currentUser.uid, product, { selectedSize, note });
-            alert("Продуктът е добавен в количката!");
-        } catch (err) {
-            alert(err.message);
-        }
-    };
-
     return (
-        <main className="details-wrapper">
+        <>
+            <main className="details-wrapper">
+                <article className="details-article">
+                    <h1 className="details-title">{product.title}</h1>
+                    <div className="details-subtitle">{product.subtitle}</div>
+                    <img src={product.img1} alt={product.title} className="details-cover" />
 
-            <article className="details-article">
+                    <div
+                        className="details-content"
+                        dangerouslySetInnerHTML={{
+                            __html: product.description || "<p>Няма описание.</p>",
+                        }}
+                    />
+                </article>
+            </main>
 
-                {/* Заглавие */}
-                <h1 className="details-title">{product.title}</h1>
+            <div className="comments-wrapper">
+                <h3 className="comments-title">What Our Clients Say</h3>
 
-                {/* Subtitle = Price / tagline */}
-                <div className="details-subtitle">{product.subtitle}</div>
-                {/* Изображение */}
-                <img src={product.img1} alt={product.title} className="details-cover" />
+                <div className="comments-section">
+                    <div className="comments-list">
+                        {comments.length > 0 ? (
+                            comments.map((c) => <CommentItem key={c.id} comment={c} />)
+                        ) : (
+                            <p>No comments.</p>
+                        )}
+                    </div>
 
-
-
-                {/* Описание */}
-                <div
-                    className="details-content"
-                    dangerouslySetInnerHTML={{
-                        __html: product.description || "<p>Няма описание.</p>"
-                    }}
-                />
-
-            </article>
-
-        </main>
+                    <form className="comment-form" onSubmit={commentHandler}>
+                        <input name="names" type="text" placeholder="Full Name" required />
+                        <textarea name="comment" rows="5" placeholder="Your Comment" required></textarea>
+                        <button type="submit">Send Comment</button>
+                    </form>
+                </div>
+            </div>
+        </>
     );
-
 }

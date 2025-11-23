@@ -1,24 +1,22 @@
 import { db } from '../config/firebase';
-import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
+import { collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 
-export async function getComments() {
+export async function getComments(productId) {
     try {
         const q = query(
             collection(db, "comments"),
-            orderBy("createdAt", "desc"),
-            limit(10)
+            where("productId", "==", productId),
+            limit(20)
         );
 
-        const querySnapshot = await getDocs(q);
-        const comments = [];
+        const snapshot = await getDocs(q);
 
-        querySnapshot.forEach((doc) => {
-            comments.push({ id: doc.id, ...doc.data() });
-        });
-
-        return comments;
+        return snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
     } catch (error) {
-        console.error("Грешка при извличането на коментарите: ", error);
+        console.error("Грешка при извличане на коментари:", error);
         return [];
     }
 }
