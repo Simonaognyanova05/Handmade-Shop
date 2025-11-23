@@ -7,7 +7,7 @@ export async function writeComment(commentData) {
             names: commentData.names,
             comment: commentData.comment,
             productId: commentData.productId, // ← добавено!
-            createdAt: new Date()
+            createdAt: serverTimestamp()
         });
 
         return { id: docRef.id, ...commentData, status: 200 };
